@@ -18,13 +18,13 @@ alias pip="pip3"
 
 
 alias dir="dir --color"
-if command -v colorls > /dev/null 2>&1; then
+# if command -v colorls > /dev/null 2>&1; then
     alias ll="colorls -Alh"
     alias ls="colorls -Ah"
-else
-    alias ll="ls -Alh"
-    alias ls="ls -Ah"
-fi
+# else
+# alias ll="ls -Alh"
+# alias ls="ls -Ah"
+# fi
 alias icat="kitty +kitten icat"
 alias kt="kitty +kitten"
 
@@ -43,9 +43,9 @@ alias per="cd $PERSONAL"
 
 alias nvim-chad="NVIM_APPNAME=NvChad nvim"
 
-bindkey "^j" autosuggest-accept
+# bindkey "	" autosuggest-accept
 # bindkey '^I' complete-word
-bindkey "^E" end-of-line
+# bindkey "^E" end-of-line
 
 
 bindkey -r '^v'

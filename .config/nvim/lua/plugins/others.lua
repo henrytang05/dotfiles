@@ -1,140 +1,5 @@
 return {
-  {
-    "kawre/leetcode.nvim",
-    build = ":TSUpdate html",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "nvim-lua/plenary.nvim", -- required by telescope
-      "MunifTanjim/nui.nvim",
 
-      -- optional
-      "nvim-treesitter/nvim-treesitter",
-      "rcarriga/nvim-notify",
-      "nvim-tree/nvim-web-devicons",
-    },
-    cmd = "Leet",
-    opts = {},
-  },
-  {
-    "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
-    opts = function()
-      local colors = require("cyberdream.colors").default
-      local cyberdream = require("lualine.themes.cyberdream")
-      local copilot_colors = {
-        [""] = { fg = colors.grey, bg = colors.none },
-        ["Normal"] = { fg = colors.grey, bg = colors.none },
-        ["Warning"] = { fg = colors.red, bg = colors.none },
-        ["InProgress"] = { fg = colors.yellow, bg = colors.none },
-      }
-      return {
-        options = {
-          component_separators = { left = " ", right = " " },
-          section_separators = { left = " ", right = " " },
-          theme = cyberdream,
-          globalstatus = true,
-          disabled_filetypes = { statusline = { "dashboard", "alpha" } },
-        },
-        sections = {
-          lualine_a = { { "mode", icon = "" } },
-          lualine_b = { { "branch", icon = "" } },
-          lualine_c = {
-            {
-              "diagnostics",
-              symbols = {
-                error = " ",
-                warn = " ",
-                info = " ",
-                hint = "󰝶 ",
-              },
-            },
-            { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-            {
-              "filename",
-              symbols = { modified = "  ", readonly = "", unnamed = "" },
-            },
-            {
-              function()
-                return require("nvim-navic").get_location()
-              end,
-              cond = function()
-                return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
-              end,
-              color = { fg = colors.grey, bg = colors.none },
-            },
-          },
-          lualine_x = {
-            {
-              require("lazy.status").updates,
-              cond = require("lazy.status").has_updates,
-              color = { fg = colors.green },
-            },
-            {
-              function()
-                local icon = " "
-                local status = require("copilot.api").status.data
-                return icon .. (status.message or "")
-              end,
-              cond = function()
-                local ok, clients = pcall(vim.lsp.get_active_clients, { name = "copilot", bufnr = 0 })
-                return ok and #clients > 0
-              end,
-              color = function()
-                if not package.loaded["copilot"] then
-                  return
-                end
-                local status = require("copilot.api").status.data
-                return copilot_colors[status.status] or copilot_colors[""]
-              end,
-            },
-            { "diff" },
-            { "record" },
-          },
-          lualine_y = {
-            {
-              "progress",
-            },
-            {
-              "location",
-              color = { fg = colors.cyan, bg = colors.none },
-            },
-          },
-          lualine_z = {
-            function()
-              return "  " .. os.date("%X") .. " 🚀 "
-            end,
-          },
-        },
-
-        extensions = { "lazy", "toggleterm", "mason", "neo-tree", "trouble" },
-      }
-    end,
-  },
-  {
-    "wildfunctions/myeyeshurt",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {},
-  },
-  -- {
-  --   "mg979/vim-visual-multi",
-  -- },
-  {
-    "danielfalk/smart-open.nvim",
-    branch = "0.2.x",
-    config = function()
-      require("telescope").load_extension("smart_open")
-      vim.keymap.set("n", "<leader><leader>", function()
-        require("telescope").extensions.smart_open.smart_open()
-      end, { noremap = true, silent = true })
-    end,
-    dependencies = {
-      "kkharji/sqlite.lua",
-      -- Only required if using match_algorithm fzf
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-      -- Optional.  If installed, native fzy will be used when match_algorithm is fzy
-      { "nvim-telescope/telescope-fzy-native.nvim" },
-    },
-  },
   {
     "smoka7/multicursors.nvim",
     event = "VeryLazy",
@@ -198,10 +63,6 @@ return {
         },
       })
     end,
-  },
-  {
-    "m4xshen/smartcolumn.nvim",
-    opts = {},
   },
   {
     "chrisgrieser/nvim-early-retirement",
@@ -274,12 +135,13 @@ return {
       vim.keymap.set("n", "<leader>o", "<cmd>Telescope neoclip<CR>", { desc = "Telescope Neoclip" })
     end,
   },
-  {
-    "gen740/SmoothCursor.nvim",
-    config = function()
-      require("smoothcursor").setup()
-      vim.cmd([[SmoothCursorFancyOn]])
-    end,
-  },
   { "dbeniamine/cheat.sh-vim" },
+  -- init.lua
+  {
+    {
+      "lukas-reineke/headlines.nvim",
+      dependencies = "nvim-treesitter/nvim-treesitter",
+      config = true, -- or `opts = {}`
+    },
+  },
 }

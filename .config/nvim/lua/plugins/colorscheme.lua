@@ -1,7 +1,7 @@
 return {
   {
     "folke/tokyonight.nvim",
-    lazy = false,
+    lazy = true,
     opts = {
       transparent = true,
       styles = {
@@ -58,11 +58,12 @@ return {
   {
     "olimorris/onedarkpro.nvim",
     priority = 1000, -- Ensure it loads first
+    lazy = true,
   },
 
   {
     "navarasu/onedark.nvim",
-    lazy = false,
+    lazy = true,
     priority = 1000, -- Ensure it loads first
     config = function()
       require("onedark").setup({
@@ -73,7 +74,7 @@ return {
   },
   {
     "Mofiqul/dracula.nvim",
-    lazy = false,
+    lazy = true,
     priority = 1000, -- Ensure it loads first
     config = function()
       require("dracula").setup({
@@ -120,7 +121,8 @@ return {
               symbols = {
                 error = " ",
                 warn = " ",
-                info = " ",
+                italic_comments = true,
+                show_end_of_buffer = true,
                 hint = "󰝶 ",
               },
             },
@@ -183,42 +185,17 @@ return {
 
         extensions = { "lazy", "toggleterm", "mason", "neo-tree", "trouble" },
       }
-      -- vim.cmd("colorscheme cyberdream") -- set the colorscheme
-
-      -- local cyberdream = require("lualine.themes.cyberdream")
-      -- require("lualine").setup({
-      --   -- ... other config
-      --   options = {
-      --     theme = "cyberdream",
-      --   },
-      --   -- ... other config
-      -- })
     end,
   },
   {
     "EdenEast/nightfox.nvim",
+    lazy = true,
     config = function()
       require("nightfox").setup({
         options = {
           transparent = true,
         },
       })
-    end,
-  },
-  {
-    "scottmckendry/cyberdream.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("cyberdream").setup({
-        -- Recommended - see "Configuring" below for more config options
-        transparent = true,
-        italic_comments = true,
-        hide_fillchars = true,
-        borderless_telescope = true,
-        terminal_colors = true,
-      })
-      -- vim.cmd("colorscheme cyberdream") -- set the colorscheme
     end,
   },
 

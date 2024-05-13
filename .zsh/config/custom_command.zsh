@@ -1,11 +1,4 @@
 
-fcd() {
-    local selected_dir
-    selected_dir=$(find * -type d -name '.*' -o ! -name '.*' 2>/dev/null | fzf +m) # Use find to list directories
-    if [ -n "$selected_dir" ]; then
-        cd "$selected_dir" || return 1
-    fi
-}
 loading() {
  while true
 do

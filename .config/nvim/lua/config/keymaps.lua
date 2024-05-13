@@ -60,3 +60,16 @@ vim.keymap.set("i", "<C-j>", 'copilot#Accept("\\<CR>")', {
 vim.g.copilot_no_tab_map = true
 -- vim.b.copilot_enabled = true
 keymap.set("i", "<C-H>", "<C-W>", { noremap = true })
+vim.keymap.set(
+  "n",
+  "j",
+  [[v:count ? (v:count >= 3 ? "m'" . v:count : '') . 'j' : 'gj']],
+  { noremap = true, expr = true }
+)
+
+vim.keymap.set(
+  "n",
+  "k",
+  [[v:count ? (v:count >= 3 ? "m'" . v:count : '') . 'k' : 'gk']],
+  { noremap = true, expr = true }
+)

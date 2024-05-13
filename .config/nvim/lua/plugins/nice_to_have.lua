@@ -48,17 +48,17 @@ return {
     },
   },
   {
-    "NvChad/nvim-colorizer.lua",
+    "norcalli/nvim-colorizer.lua",
   },
 
-  {
-    "brenoprata10/nvim-highlight-colors",
-    opts = function()
-      vim.opt.termguicolors = true
-
-      require("nvim-highlight-colors").setup({})
-    end,
-  },
+  -- {
+  --   "brenoprata10/nvim-highlight-colors",
+  --   opts = function()
+  --     vim.opt.termguicolors = true
+  --
+  --     require("nvim-highlight-colors").setup({})
+  --   end,
+  -- },
   {
     "m4xshen/hardtime.nvim",
     cmd = "HardTime",
@@ -136,35 +136,6 @@ return {
 
       { "<leader>e", "<cmd>UndotreeToggle<CR>", { silent = true, remap = true, desc = "Undo Tree" } },
     },
-  },
-
-  {
-    "b0o/incline.nvim",
-    event = "BufReadPre",
-    priority = 1200,
-    config = function()
-      require("incline").setup({
-        highlight = {
-          groups = {
-            InclineNormal = { guifg = "#fe22ee" },
-            InclineNormalNC = { guifg = "#2abf9a" },
-          },
-        },
-        window = { margin = { vertical = 0, horizontal = 1 } },
-        hide = {
-          cursorline = true,
-        },
-        render = function(props)
-          local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
-          if vim.bo[props.buf].modified then
-            filename = "[+] " .. filename
-          end
-
-          local icon, color = require("nvim-web-devicons").get_icon_color(filename)
-          return { { icon, guifg = color }, { " " }, { filename } }
-        end,
-      })
-    end,
   },
 
   {
@@ -273,8 +244,18 @@ return {
         subwordMovement = true,
         customPatterns = {},
       })
-      vim.keymap.set("i", "<C-f>", "<Esc>l<cmd>lua require('spider').motion('w')<CR>i")
-      vim.keymap.set("i", "<C-b>", "<Esc><cmd>lua require('spider').motion('b')<CR>i")
+      vim.keymap.set(
+        "i",
+        "<C-f>",
+        "<Esc>l<cmd>lua require('spider').motion('w')<CR>i",
+        { silent = true, noremap = true }
+      )
+      vim.keymap.set(
+        "i",
+        "<C-b>",
+        "<Esc><cmd>lua require('spider').motion('b')<CR>i",
+        { silent = true, noremap = true }
+      )
     end,
 
     keys = {
@@ -310,6 +291,40 @@ return {
         { "S", mode = { "n", "o", "x" }, false},
         { "<leader>j", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
         { "<leader>J", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+    },
+  },
+
+  {
+    "kawre/leetcode.nvim",
+    build = ":TSUpdate html",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim", -- required by telescope
+      "MunifTanjim/nui.nvim",
+
+      -- optional
+      "nvim-treesitter/nvim-treesitter",
+      "rcarriga/nvim-notify",
+      "nvim-tree/nvim-web-devicons",
+    },
+    cmd = "Leet",
+    opts = {},
+  },
+  {
+    "danielfalk/smart-open.nvim",
+    branch = "0.2.x",
+    config = function()
+      require("telescope").load_extension("smart_open")
+      vim.keymap.set("n", "<leader><leader>", function()
+        require("telescope").extensions.smart_open.smart_open()
+      end, { noremap = true, silent = true })
+    end,
+    dependencies = {
+      "kkharji/sqlite.lua",
+      -- Only required if using match_algorithm fzf
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      -- Optional.  If installed, native fzy will be used when match_algorithm is fzy
+      { "nvim-telescope/telescope-fzy-native.nvim" },
     },
   },
 }

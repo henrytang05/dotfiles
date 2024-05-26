@@ -1,28 +1,28 @@
 return {
-  {
-    "smoka7/multicursors.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "smoka7/hydra.nvim",
-    },
-    opts = {},
-    cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
-    keys = {
-      {
-        mode = { "v", "n" },
-        "<Leader>mc",
-        "<cmd>MCstart<cr>",
-        desc = "Create a selection for selected text or word under the cursor",
-      },
-    },
-  },
-  {
-    "tzachar/highlight-undo.nvim",
-    lazy = true,
-    opts = {
-      ...,
-    },
-  },
+  -- {
+  --   "smoka7/multicursors.nvim",
+  --   event = "VeryLazy",
+  --   dependencies = {
+  --     "smoka7/hydra.nvim",
+  --   },
+  --   opts = {},
+  --   cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
+  --   keys = {
+  --     {
+  --       mode = { "v", "n" },
+  --       "<Leader>mc",
+  --       "<cmd>MCstart<cr>",
+  --       desc = "Create a selection for selected text or word under the cursor",
+  --     },
+  --   },
+  -- },
+  -- {
+  --   "tzachar/highlight-undo.nvim",
+  --   lazy = true,
+  --   opts = {
+  --     ...,
+  --   },
+  -- },
   { -- color previews & color picker
     "uga-rosa/ccc.nvim",
     lazy = true,
@@ -136,32 +136,18 @@ return {
       vim.keymap.set("n", "<leader>o", "<cmd>Telescope neoclip<CR>", { desc = "Telescope Neoclip" })
     end,
   },
-  { "dbeniamine/cheat.sh-vim", lazy = true },
+  {
+    "RishabhRD/nvim-cheat.sh",
+    dependencies = {
+      "RishabhRD/popfix",
+    },
+  },
   -- init.lua
   {
     "tpope/vim-obsession",
     lazy = true,
   },
-  {
 
-    "mfussenegger/nvim-dap",
-    keys = {
-      {
-        "<F10>",
-        function()
-          require("dap").step_into()
-        end,
-        desc = "Step Into",
-      },
-      {
-        "<F5>",
-        function()
-          require("dap").step_over()
-        end,
-        desc = "Step Over",
-      },
-    },
-  },
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "LazyFile",
@@ -206,15 +192,4 @@ return {
       require("scrollEOF").setup()
     end,
   },
-  -- {
-  --   "chrishrb/gx.nvim",
-  --   keys = { { "gx", "<cmd>Browse<cr>", mode = { "n", "x" }, { remap = true } } },
-  --   cmd = { "Browse" },
-  --   init = function()
-  --     vim.g.netrw_nogx = 1 -- disable netrw gx
-  --   end,
-  --   dependencies = { "nvim-lua/plenary.nvim" },
-  --   config = true, -- default settings
-  --   submodules = false, -- not needed, submodules are required only for tests
-  -- },
 }

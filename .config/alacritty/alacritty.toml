@@ -1,9 +1,10 @@
 import = ["~/.config/alacritty/theme/catppuccin-mocha.toml"]
+# import = ["~/.config/alacritty/theme/catppuccin-latte.toml"]
 live_config_reload = true
 
 
 [font]
-size = 14
+size = 10
 
 [font.normal]
 family = "CaskaydiaCove Nerd Font"
@@ -40,7 +41,7 @@ dimensions = { columns = 160, lines = 80 }
 padding = { x = 4, y = 4 }
 # margin = { x = 0, y = 10}
 
-opacity = 0.9
+# opacity = 0.9
 # Window decorations
 # Setting this to false will result in window without borders and title bar.
 decorations = "None"

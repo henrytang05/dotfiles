@@ -41,6 +41,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+bindsym $mod+d exec rofi -show-icons -sidebar-mode -show drun -terminal alacritty -theme ~/.config/rofi/config.rasi 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -51,7 +52,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+# bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -184,18 +185,34 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
-mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
+# mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
+#
+#   bindsym l exec i3-msg exit
+#
+#   bindsym r exec systemctl reboot
+#
+#   bindsym s exec systemctl shutdown
+#
+#   bindsym Escape mode "default"
+#
+#   bindsym Return mode "default"
+#
+# }
+#
+#
+# bindsym $mod+x mode "exit: [l]ogout, [r]eboot, [s]hutdown"
 
-  bindsym l exec i3-msg exit
+set $leave_menu Leave Menu: (1)Lock, (2)Logout, (3)Suspend, (4)Hibernate, (5)Reboot, (6)Shutdown
+mode "$leave_menu" {
+    bindsym  exec --no-startup-id $myscripts/lock-session.sh, mode "default"
+    bindsym 2 exec --no-startup-id i3-msg exit, mode "default"
+    bindsym 3 exec --no-startup-id systemctl suspend, mode "default"
+    bindsym 4 exec --no-startup-id systemctl hibernate, mode "default"
+    bindsym 5 exec --no-startup-id systemctl reboot, mode "default"
+    bindsym 6 exec --no-startup-id systemctl poweroff, mode "default"
 
-  bindsym r exec systemctl reboot
-
-  bindsym s exec systemctl shutdown
-
-  bindsym Escape mode "default"
-
-  bindsym Return mode "default"
-
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
-
-bindsym $mod+x mode "exit: [l]ogout, [r]eboot, [s]hutdown"
+bindsym $mod+x mode "$leave_menu"

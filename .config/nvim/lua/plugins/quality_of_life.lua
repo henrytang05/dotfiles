@@ -80,4 +80,23 @@ return {
       timeout = 10000,
     },
   },
+  {
+    "mfussenegger/nvim-dap",
+    keys = {
+      {
+        "<F10>",
+        function()
+          require("dap").step_into()
+        end,
+        desc = "Step Into",
+      },
+      {
+        "<F5>",
+        function()
+          require("dap").step_over()
+        end,
+        desc = "Step Over",
+      },
+    },
+  },
 }

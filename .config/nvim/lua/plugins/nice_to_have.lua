@@ -211,6 +211,7 @@ return {
   -- },
   {
     "LintaoAmons/scratch.nvim",
+    tag = "v0.13.2",
     lazy = true,
     event = "VeryLazy",
     keys = {
@@ -322,7 +323,12 @@ return {
     opts = {
       injector = { ---@type table<lc.lang, lc.inject>
         ["cpp"] = {
-          before = { "#include <bits/stdc++.h>", "using namespace std;", "class TreeNode;", "class ListNode;" },
+          before = {
+            "#include <bits/stdc++.h>",
+            "using namespace std;",
+            "class TreeNode{\n int val;\n TreeNode* left;\n TreeNode* right;\n};",
+            "class ListNode{\n int val;\n ListNode* next;\n};",
+          },
           -- after = "int main() {}",
         },
         ["java"] = {

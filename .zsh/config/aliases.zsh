@@ -60,4 +60,5 @@ alias yolo="git commit -m "$(curl -s https://whatthecommit.com/index.txt)""
 alias bye="exit"
 alias cya="shutdown -h now"
 alias gimmeh="touch"
+alias huhu="echo -e \"It's okay bro! \nYou are doing great! \nKeep going! \nTrust the process!\""
 

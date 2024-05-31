@@ -206,7 +206,7 @@ return {
     },
   },
   { "rose-pine/neovim", name = "rose-pine" },
-
+  { "sam4llis/nvim-tundra" },
   {
     "LazyVim/LazyVim",
     opts = {

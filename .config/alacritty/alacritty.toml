@@ -7,11 +7,12 @@ live_config_reload = true
 size = 10
 
 [font.normal]
-family = "CaskaydiaCove Nerd Font"
-style = "Regular"
+family = "Maple Mono NF"
+style = "Bold"
 
-# [font.italic]
-# family = "VictorMono Nerd Font Mono"
+[font.italic]
+family = "Maple Mono NF"
+style = "Italic"
 
 [[keyboard.bindings]]
 action = "SpawnNewInstance"
@@ -41,7 +42,7 @@ dimensions = { columns = 160, lines = 80 }
 padding = { x = 4, y = 4 }
 # margin = { x = 0, y = 10}
 
-# opacity = 0.9
+opacity = 0.9
 # Window decorations
 # Setting this to false will result in window without borders and title bar.
 decorations = "None"

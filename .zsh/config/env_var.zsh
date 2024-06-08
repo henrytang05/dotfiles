@@ -1,5 +1,5 @@
 export GOOGLE_API_KEY="AIzaSyANAa654zj2ATsqTOHF-DW3qb-f5RXo6-I"
-export FUNCNEST=1000
+export FUNCNEST=10000
 export EDITOR=/snap/bin/nvim 
 export VISUAL=/snap/bin/nvim
 export STARSHIP_CONFIG=~/.config/starship.toml

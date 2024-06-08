@@ -9,6 +9,7 @@ export TERM=xterm-256color
 # export PATH="$PATH:/opt/nvim-linux64/bin" # nvim
 export PATH=$PATH:$HOME/.local/bin:$HOME/go/bin:$HOME/.local/nvim-linux64/bin:$HOME/node_modules/.bin/
 export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH="$PATH:/home/huytang/anaconda3/bin"
 # export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # export ZSH_AUTOSUGGEST_USE_ASYNC=true
 
@@ -34,4 +35,20 @@ export VI_MODE_CURSOR_NORMAL=2
 export VI_MODE_CURSOR_VISUAL=6
 export VI_MODE_CURSOR_INSERT=6
 export VI_MODE_CURSOR_OPPEND=4
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/huytang/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/huytang/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/huytang/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/huytang/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
 

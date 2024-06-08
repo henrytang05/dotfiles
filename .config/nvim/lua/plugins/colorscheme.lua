@@ -1,7 +1,6 @@
 return {
   {
     "folke/tokyonight.nvim",
-
     opts = {
       transparent = true,
       styles = {
@@ -210,7 +209,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "cyberdream",
+      colorscheme = "catppuccin",
     },
   },
 }

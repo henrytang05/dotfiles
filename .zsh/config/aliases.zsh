@@ -3,14 +3,14 @@ alias du="du -h"
 alias bat="batcat"
 alias cls="clear"
 alias which="which -a"
-alias grep="grep --color=auto"
+# alias grep="grep --color=auto"
 alias rm="trash"
-alias rmdir"trash -d"
+alias rmdir="trash -d"
 alias cb="clipboard"
 
-alias l="exa -la --icons"
-alias ls="exa --icons"
-alias la="exa -la --icons"
+alias l="eza -lAF --icons=always"
+alias ls="eza -F --icons=always"
+alias la="eza -AF --icons=always"
 alias czsh="nvim ~/.zshrc"
 alias tmuxconf="nvim ~/.tmux.conf"
 alias stmux="tmux source-file ~/.tmux.conf"
@@ -40,9 +40,7 @@ alias nv="nvim"
 alias nnn="nnn -e"
 
 alias fzf="fzf --preview 'batcat --color=always {}'"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-alias cdf="fcd"
 
 export PERSONAL="~/Personal"
 alias per="cd $PERSONAL"
@@ -56,11 +54,15 @@ alias nvim-chad="NVIM_APPNAME=NvChad nvim"
 
 bindkey -r '^v'
 
-alias vi='nvim $(fzf --height 40% --reverse --preview "batcat --style=numbers --color=always {}")'
+alias vf='fzf_output=$(fzf --height 40% --reverse --preview "batcat --style=numbers --color=always {}"); if [ -n "$fzf_output" ]; then nvim "$fzf_output"; fi'
+# alias vi='nvim $(fzf --height 40% --reverse --preview "batcat --style=numbers --color=always {}")'
 alias killfzf="top -l 1 -o cpu | sed 1,/^top/d | awk '{print \$1, \$12}' | fzf --height 40% --reverse --multi | awk '{print \$1}' | xargs kill"
 alias yolo="git commit -m "$(curl -s https://whatthecommit.com/index.txt)""
 alias bye="exit"
 alias cya="shutdown -h now"
 alias gimmeh="touch"
 alias huhu="echo -e \"It's okay bro! \nYou are doing great! \nKeep going! \nTrust the process!\""
-
+alias fucku="fuck --yeah"
+alias alaconf="nvim ~/.config/alacritty/alacritty.toml"
+alias addali="nvim ~/.zsh/config/aliases.zsh"
+alias copilot="gh copilot"

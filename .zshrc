@@ -1,8 +1,4 @@
-ZSH_CONFIG="${HOME}/.zsh/config"
-source "${ZSH_CONFIG}/env_var.zsh"
-source "${ZSH_CONFIG}/aliases.zsh"
-source "${ZSH_CONFIG}/custom_command.zsh"
-source "${ZSH_CONFIG}/other_conf.zsh"
+# zmodload zsh/zprof
 
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -12,9 +8,23 @@ if [ ! -d "$ZINIT_HOME" ]; then
    mkdir -p "$(dirname $ZINIT_HOME)"
    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
+  #
+  # ZSH_CONFIG="${HOME}/.zsh/config"
+  # source "${ZSH_CONFIG}/aliases.zsh"
 
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
+export DISABLE_AUTO_UPDATE=true
+# source "${ZSH_CONFIG}/env_var.zsh"
+# source "${ZSH_CONFIG}/aliases.zsh"
 
 
 # Add in zsh plugins
@@ -24,11 +34,12 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light Aloxaf/fzf-tab
 
-zinit snippet OMZP::web-search
-zinit snippet OMZP::command-not-found
-zinit snippet OMZP::safe-paste
+# zinit snippet OMZP::web-search
+# zinit snippet OMZP::command-not-found
+# zinit snippet OMZP::safe-paste
+
 # Load completions
-autoload -Uz compinit && compinit
+# autoload -Uz compinit && compinit
 
 zinit cdreplay -q
 
@@ -58,10 +69,15 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-source ~/.zsh-autopair/autopair.zsh
-autopair-init
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# source ~/.zsh-autopair/autopair.zsh
+# autopair-init
 # Shell integrations
-eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
-eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/star.json)"
+# eval "$(fzf --zsh)"
+# eval "$(zoxide init --cmd cd zsh)"
+# eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
+# eval $(thefuck --alias)
+# eval "$(gh copilot alias -- zsh)"
+# eval "$(starship init zsh)"
 
+# zprof

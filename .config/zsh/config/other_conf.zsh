@@ -18,3 +18,19 @@ setxkbmap -option caps:escape
 #
 # Disable fn key
 # echo 0 |sudo tee /sys/module/hid_apple/parameters/fnmode
+#
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/home/huytang/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/home/huytang/anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "/home/huytang/anaconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/home/huytang/anaconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# <<< conda initialize <<<
+

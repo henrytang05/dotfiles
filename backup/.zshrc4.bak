@@ -1,20 +1,13 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+# zmodload zsh/zprof
+export EDITOR=nvim
+alias nvim="~/.local/bin/nvim"
 
-# Skip the not really helping Ubuntu global compinit
-skip_global_compinit=1
-
- ZSH_CONFIG="${HOME}/.zsh/config"
- source "${ZSH_CONFIG}/aliases.zsh"
+ZSH_CONFIG="${HOME}/.zsh/config"
+source "${ZSH_CONFIG}/aliases.zsh"
 source "${ZSH_CONFIG}/env_var.zsh"
 source "${ZSH_CONFIG}/other_conf.zsh"
 source "${ZSH_CONFIG}/custom_command.zsh"
-# Set the GPG_TTY to be the same as the TTY, either via the env var
-# or via the tty command.
-
-# SSH_AUTH_SOCK set to GPG to enable using gpgagent as the ssh agent.
-
+# Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
 # Download Zinit, if it's not there yet
@@ -25,64 +18,54 @@ fi
 
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
+
+export DISABLE_AUTO_UPDATE=true
+
+# Add in zsh plugins
 #
-# # Load using the for-syntax
-# # zinit lucid wait for \
-# #   "some/plugin"
-# #
-# # zinit lucid wait for \
-# #   "other/plugin"
+# zinit ice wait lucid atload '_zsh_autosuggest_start'
+# zinit light zsh-users/zsh-autosuggestions
+# zinit light zsh-users/zsh-completions
+# zinit light zsh-users/zsh-syntax-highlighting
+# zinit light zdharma-continuum/fast-syntax-highlighting
+# zinit light Aloxaf/fzf-tab
 #
+
 zinit wait lucid for \
  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
     zdharma-continuum/fast-syntax-highlighting \
  blockf \
     zsh-users/zsh-completions \
  atload"!_zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions
-#
-# # Add in zsh plugins
-# zinit light zsh-users/zsh-syntax-highlighting
-# zinit light zsh-users/zsh-completions
-# zinit light zsh-users/zsh-autosuggestions
-
-zinit light Aloxaf/fzf-tab
-
+    zsh-users/zsh-autosuggestions \
+      Aloxaf/fzf-tab
+# Load completions
+# zinit cdreplay -q
 zinit ice as"command" from"gh-r" \
           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
           atpull"%atclone" src"init.zsh"
 zinit light starship/starship
-# zinit ice from"gh-r" as"program"
-# zinit light junegunn/fzf-bin
+# zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
+#     atpull'%atclone' pick"clrs.zsh" nocompile'!' \
+#     atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
 
-#
-#
-# # Add in snippets
-# zinit snippet OMZP::sudo
-# zinit snippet OMZP::command-not-found
-#
-# # autoload -Uz _zinit
-# # (( ${+_comps} )) && _comps[zinit]=_zinit
-#
-# # autoload -Uz compinit
-# # for dump in ~/.zcompdump(N.mh+24); do
-# #   compinit
-# # done
-# # compinit -C
-#
-export DISABLE_AUTO_UPDATE=true
-#
-# # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-#
-# # Keybindings
+# Keybindings
 bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
-#
+
 zle_highlight+=(paste:none)
-#
-# # History
+
+# History
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
@@ -102,7 +85,16 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-#
-# # Shell integrations
-# eval "$(fzf --zsh)"
+# Shell integrations
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+# eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
+# eval $(thefuck --alias)
+# eval "$(gh copilot alias -- zsh)"
+# eval "$(starship init zsh)"
+
+source ~/.zsh-autopair/autopair.zsh
+autopair-init
+# zprof

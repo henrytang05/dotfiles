@@ -25,7 +25,6 @@ export MANPATH=/home/huytang/.local/share/man:$MANPATH
 # export HISTFILE=~/.cache/zsh/history
 # export ZDOTDIR=$HOME/.cache/zsh/dot/
 
-# export ZSH_COMPDUMP="~/.cache/zsh/zcompdump" 
 #
 # export VI_MODE_SET_CURSOR=true
 # export ZOXIDE_CMD_OVERRIDE="cd"
@@ -35,20 +34,5 @@ export MANPATH=/home/huytang/.local/share/man:$MANPATH
 # export VI_MODE_CURSOR_VISUAL=6
 # export VI_MODE_CURSOR_INSERT=6
 # export VI_MODE_CURSOR_OPPEND=4
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/home/huytang/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/home/huytang/anaconda3/etc/profile.d/conda.sh" ]; then
-#         . "/home/huytang/anaconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/home/huytang/anaconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# <<< conda initialize <<<
 
 

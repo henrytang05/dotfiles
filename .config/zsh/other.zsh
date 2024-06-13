@@ -3,6 +3,9 @@
 # other options are: none, super ...
 gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
 setxkbmap -option caps:escape
+
+# auto start tmux
+# [ -z "$TMUX"  ] && { tmux attach 2> /dev/null || exec tmux new-session && exit; }
 # # vi mode
 # zle -N zle-keymap-select
 # zle-line-init() {

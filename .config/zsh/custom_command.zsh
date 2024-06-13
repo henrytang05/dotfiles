@@ -26,3 +26,8 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
+funvocab() {
+    cd ~/Personal/Cpp/learn
+    make run
+}
+

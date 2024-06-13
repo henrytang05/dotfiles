@@ -5,9 +5,9 @@
 # Skip the not really helping Ubuntu global compinit
 skip_global_compinit=1
 
- ZSH_CONFIG="${HOME}/.zsh/config"
- source "${ZSH_CONFIG}/aliases.zsh"
-source "${ZSH_CONFIG}/env_var.zsh"
+ ZSH_CONFIG="${HOME}/.config/zsh"
+ source "${ZSH_CONFIG}/env_var.zsh"
+source "${ZSH_CONFIG}/aliases.zsh" 
 source "${ZSH_CONFIG}/other_conf.zsh"
 source "${ZSH_CONFIG}/custom_command.zsh"
 # Set the GPG_TTY to be the same as the TTY, either via the env var
@@ -33,34 +33,34 @@ source "${ZINIT_HOME}/zinit.zsh"
 # # zinit lucid wait for \
 # #   "other/plugin"
 #
-zinit wait lucid for \
- atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-    zdharma-continuum/fast-syntax-highlighting \
- blockf \
-    zsh-users/zsh-completions \
- atload"!_zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions
-#
-# # Add in zsh plugins
-# zinit light zsh-users/zsh-syntax-highlighting
-# zinit light zsh-users/zsh-completions
-# zinit light zsh-users/zsh-autosuggestions
+# zinit wait lucid for \
+#  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+#     zdharma-continuum/fast-syntax-highlighting \
+#  blockf \
+#     zsh-users/zsh-completions \
+#  atload"!_zsh_autosuggest_start" \
+#     zsh-users/zsh-autosuggestions \
+
+# zinit light jeffreytse/zsh-vi-mode
+# atclone"local P=${${(M)OSTYPE:#*darwin*}:+g}
+#         \${P}sed -i \
+#         '/DIR/c\DIR 38;5;63;1' LS_COLORS; \
+#         \${P}dircolors -b LS_COLORS > c.zsh" \
+# atpull'%atclone' pick"c.zsh" nocompile'!' \
+# atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”' \
+#     trapd00r/LS_COLORS
 
 zinit light Aloxaf/fzf-tab
 
-zinit ice as"command" from"gh-r" \
-          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-          atpull"%atclone" src"init.zsh"
+# zinit ice as"command" from"gh-r" \
+#           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+#           atpull"%atclone" src"init.zsh"
 zinit light starship/starship
-# zinit ice from"gh-r" as"program"
-# zinit light junegunn/fzf-bin
 
 #
 #
 # # Add in snippets
-# zinit snippet OMZP::sudo
-# zinit snippet OMZP::command-not-found
-#
+
 # # autoload -Uz _zinit
 # # (( ${+_comps} )) && _comps[zinit]=_zinit
 #
@@ -75,7 +75,7 @@ export DISABLE_AUTO_UPDATE=true
 # # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 #
 # # Keybindings
-bindkey -e
+bindkey -v
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
@@ -104,5 +104,5 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 #
 # # Shell integrations
-# eval "$(fzf --zsh)"
+eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"

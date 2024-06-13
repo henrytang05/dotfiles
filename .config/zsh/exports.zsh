@@ -1,4 +1,4 @@
-export GOOGLE_API_KEY="AIzaSyANAa654zj2ATsqTOHF-DW3qb-f5RXo6-I"
+# export GOOGLE_API_KEY="AIzaSyANAa654zj2ATsqTOHF-DW3qb-f5RXo6-I"
 export FUNCNEST=10000
 export EDITOR=/snap/bin/nvim 
 export VISUAL=/snap/bin/nvim
@@ -34,5 +34,7 @@ export MANPATH=/home/huytang/.local/share/man:$MANPATH
 # export VI_MODE_CURSOR_VISUAL=6
 # export VI_MODE_CURSOR_INSERT=6
 # export VI_MODE_CURSOR_OPPEND=4
+
+
 
 

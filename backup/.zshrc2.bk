@@ -22,36 +22,36 @@ bindkey '^j' autosuggest-accept
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
-# autoload -U compinit && compinit
-# bindkey -v '^?' backward-delete-char
-# bindkey "^H" backward-delete-char
-# zinit light Aloxaf/fzf-tab
-# # zinit snippet OMZP::vi-mode
-# zinit snippet OMZP::web-search
-# zinit snippet OMZP::command-not-found
-# zinit snippet OMZP::safe-paste
+autoload -U compinit && compinit
+bindkey -v '^?' backward-delete-char
+bindkey "^H" backward-delete-char
+zinit light Aloxaf/fzf-tab
+# zinit snippet OMZP::vi-mode
+zinit snippet OMZP::web-search
+zinit snippet OMZP::command-not-found
+zinit snippet OMZP::safe-paste
 
 
 
-# HISTSIZE=5000
-# HISTFILE=~/.zsh_history
-# SAVEHIST=$HISTSIZE
-# HISTDUP=erase
-# setopt appendhistory
-# setopt sharehistory
-# setopt hist_ignore_space
-# setopt hist_ignore_all_dups
-# setopt hist_save_no_dups
-# setopt hist_ignore_dups 
-# setopt hist_find_no_dups
-# zstyle ':completion:*:git-checkout:*' sort false
-# zstyle ':completion:*:descriptions' format '[%d]'
-# zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-# zstyle ':completion:*' menu no
-# zstyle ':fzf-tab:*' switch-group '<' '>'
-# zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-# zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-# zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups 
+setopt hist_find_no_dups
+zstyle ':completion:*:git-checkout:*' sort false
+zstyle ':completion:*:descriptions' format '[%d]'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:*' switch-group '<' '>'
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 autopair-init
 eval "$(zoxide init zsh)"

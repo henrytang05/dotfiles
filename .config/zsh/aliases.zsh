@@ -8,14 +8,14 @@ alias rm="trash"
 alias rmdir="trash -d"
 alias cb="clipboard"
 #
-alias l="eza -lAF --icons=always"
-alias ls="eza -F --icons=always"
-alias la="eza -AF --icons=always"
-alias czsh="nvim ~/.zshrc"
+alias l="eza -lAF --icons=always --group-directories-first --git"
+alias ls="eza -F --icons=always --group-directories-first --git"
+alias la="eza -AF --icons=always --group-directories-first --git"
+alias czsh="nvim ${ZDOTDIR}/.zshrc"
 alias tmuxconf="nvim ~/.tmux.conf"
 alias stmux="tmux source-file ~/.tmux.conf"
 alias src="source"
-alias szsh="source ~/.zshrc"
+alias szsh="source ${ZDOTDIR}/.zshrc"
 
 
 alias python="python3"
@@ -37,8 +37,9 @@ alias nnn="nnn -e"
 # export PERSONAL="~/Personal"
 # alias per="cd $PERSONAL"
 #
-# alias nvim-chad="NVIM_APPNAME=NvChad nvim"
-#
+alias nvim-chad="NVIM_APPNAME=NvChad nvim"
+alias dvim="NVIM_APPNAME=DreamOfCode nvim"
+
 # # bindkey "	" autosuggest-accept
 # # bindkey '^I' complete-word
 # # bindkey "^E" end-of-line
@@ -54,5 +55,17 @@ alias gimmeh="touch"
 alias huhu="echo -e \"It's okay bro! \nYou are doing great! \nKeep going! \nTrust the process!\""
 alias fucku="fuck --yeah"
 alias alaconf="nvim ~/.config/alacritty/alacritty.toml"
-alias addali="nvim ~/.zsh/config/aliases.zsh"
+alias addali="nvim ${ZDOTDIR}/aliases.zsh"
 # alias copilot="gh copilot"
+# bindkey '^ ' autosuggest-accept
+bindkey -e
+
+if command -v bat &> /dev/null; then
+  alias cat="bat -pp --theme \"Visual Studio Dark+\"" 
+  alias catt="bat --theme \"Visual Studio Dark+\"" 
+fi
+
+# Wifi
+alias wifi-connect="nmcli d wifi connect" #<tab>
+alias wifi-disconnect="nmcli d disconnect" #<tab>
+alias wifi="nmcli d wifi list"

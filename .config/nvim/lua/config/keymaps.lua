@@ -15,9 +15,9 @@ keymap.set("n", "M", "5k", { desc = "Move up 5 lines", noremap = true })
 keymap.set("n", "<leader>`", ":20sp|term<CR>", opts)
 
 keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll haft page down", noremap = true })
-keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scrool haft page up", noremap = true })
-keymap.set("n", "<C-f>", "<C-f>zz", { desc = "Scroll haft page up", noremap = true })
-keymap.set("n", "<C-b>", "<C-b>zz", { desc = "Scroll haft page down", noremap = true })
+keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll haft page up", noremap = true })
+keymap.set("n", "<C-f>", "<C-f>zz", { desc = "Scroll full page up", noremap = true })
+keymap.set("n", "<C-b>", "<C-b>zz", { desc = "Scroll full page down", noremap = true })
 
 keymap.set("n", "n", "nzzzv")
 keymap.set("n", "N", "Nzzzv")

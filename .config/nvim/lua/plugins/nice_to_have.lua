@@ -232,6 +232,7 @@ return {
         -- your options
       })
       vim.keymap.set("x", "<leader>rc", ":SnipRun<CR>", { noremap = true, silent = true, desc = "Run code" })
+      vim.keymap.set("n", "<leader>rac", "vag:SnipRun<CR>", { remap = true, silent = true, desc = "Run all code" })
     end,
   },
 
@@ -296,7 +297,13 @@ return {
     "folke/flash.nvim",
     event = "VeryLazy",
     ---@type Flash.Config
-    opts = {},
+    opts = {
+      modes = {
+        char = {
+          enabled = false,
+        },
+      },
+    },
   -- stylua: ignore
   keys = {
         { "s", mode = { "n", "x", "o" }, false},
@@ -306,37 +313,6 @@ return {
     },
   },
 
-  {
-    "kawre/leetcode.nvim",
-    build = ":TSUpdate html",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "nvim-lua/plenary.nvim", -- required by telescope
-      "MunifTanjim/nui.nvim",
-
-      -- optional
-      "nvim-treesitter/nvim-treesitter",
-      "rcarriga/nvim-notify",
-      "nvim-tree/nvim-web-devicons",
-    },
-    cmd = "Leet",
-    opts = {
-      injector = { ---@type table<lc.lang, lc.inject>
-        ["cpp"] = {
-          before = {
-            "#include <bits/stdc++.h>",
-            "using namespace std;",
-            "class TreeNode{\n int val;\n TreeNode* left;\n TreeNode* right;\n};",
-            "class ListNode{\n int val;\n ListNode* next;\n};",
-          },
-          -- after = "int main() {}",
-        },
-        ["java"] = {
-          before = "import java.util.*;",
-        },
-      },
-    },
-  },
   {
     "danielfalk/smart-open.nvim",
     branch = "0.2.x",

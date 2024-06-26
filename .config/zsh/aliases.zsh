@@ -2,6 +2,7 @@
 alias nvim="~/.local/bin/nvim"
 alias du="du -h"
 alias bat="batcat"
+alias grep="grep --color"
 alias cls="clear"
 alias which="which -a"
 alias rm="trash"
@@ -56,6 +57,7 @@ alias huhu="echo -e \"It's okay bro! \nYou are doing great! \nKeep going! \nTrus
 alias fucku="fuck --yeah"
 alias alaconf="nvim ~/.config/alacritty/alacritty.toml"
 alias addali="nvim ${ZDOTDIR}/aliases.zsh"
+alias i3conf="nvim ~/.config/i3/config"
 # alias copilot="gh copilot"
 # bindkey '^ ' autosuggest-accept
 bindkey -e

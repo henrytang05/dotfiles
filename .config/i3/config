@@ -25,11 +25,17 @@ exec --no-startup-id dex --autostart --environment i3
 # kill any hanging polybar processes
 exec_always killall polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
-exec_always --no-startup-id polybar
+# exec_always --no-startup-id polybar
 exec_always --no-startup-id compton
+exec_always --no-startup-id picom
+# exec_always --no-startup-id feh --randomize --bg-fill ${HOME}/dotfiles/wallpapers/
+exec_always --no-startup-id feh  --bg-fill ${HOME}/dotfiles/wallpapers/aesthetic-wallpapers/images/beautiful.jpg
 
-exec --no-startup-id picom
-exec --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
+# exec_always --no-startup-id wal -q -i ${HOME}/dotfiles/wallpapers 
+exec_always --no-startup-id sxhkd
+exec_always --no-startup-id autorandr --load mobile
+exec --no-startup-id setxkbmap -option caps:escape
+# exec --no-startup-id feh --bg-scale ~/Pictures/nice-blue-background.png
 # # exec --no-startup-id xrdb -merge ~/.Xresources
 # exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so

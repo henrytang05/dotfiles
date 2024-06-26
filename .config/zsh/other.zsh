@@ -1,11 +1,20 @@
 # disable caplock
 # map caplock to escape
 # other options are: none, super ...
-gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
+# gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
 setxkbmap -option caps:escape
 
-# auto start tmux
-# [ -z "$TMUX"  ] && { tmux attach 2> /dev/null || exec tmux new-session && exit; }
+fpath+=${HOME}/.local/share/zap/plugins/conda-zsh-completion
+#
+# # p paste from clipboard
+# vi-append-x-selection () { RBUFFER=$(xsel -o -p </dev/null)$RBUFFER; }
+# zle -N vi-append-x-selection
+# bindkey -a '^X' vi-append-x-selection
+# vi-yank-x-selection () { print -rn -- $CUTBUFFER | xsel -i -p; }
+# zle -N vi-yank-x-selection
+# bindkey -a '^Y' vi-yank-x-selection
+#
+
 # # vi mode
 # zle -N zle-keymap-select
 # zle-line-init() {
@@ -24,16 +33,5 @@ setxkbmap -option caps:escape
 #
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/home/huytang/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/home/huytang/anaconda3/etc/profile.d/conda.sh" ]; then
-#         . "/home/huytang/anaconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/home/huytang/anaconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
 # <<< conda initialize <<<
 

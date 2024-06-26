@@ -8,7 +8,7 @@ export TERM=xterm-256color
 # export PATH="$PATH:/opt/nvim-linux64/bin" # nvim
 export PATH=$PATH:$HOME/.local/bin:$HOME/go/bin:$HOME/.local/nvim-linux64/bin:$HOME/node_modules/.bin/
 export PATH="$PATH:/opt/nvim-linux64/bin"
-export PATH="$PATH:/home/huytang/anaconda3/bin"
+# export PATH="$PATH:/home/huytang/anaconda3/bin"
 # export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # export ZSH_AUTOSUGGEST_USE_ASYNC=true
 

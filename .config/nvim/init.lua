@@ -7,15 +7,16 @@ require("plugins.quality_of_life")
 if vim.g.neovide then
   -- Put anything you want to happen only in Neovide here
   --
-  vim.print(vim.g.neovide_version)
+  -- vim.print(vim.g.neovide_version)
 
-  vim.o.guifont = "Maple Mono NF:h12:b:i" -- text below applies for VimScript
+  vim.o.guifont = "Maple Mono NF:h13:b:i" -- text below applies for VimScript
 
   vim.g.neovide_scale_factor = 0.8
 
   vim.g.neovide_text_gamma = 0.0
   vim.g.neovide_text_contrast = 0.5
   vim.g.neovide_transparency = 0.6
+  vim.o.cursorline = false
 
   vim.g.neovide_window_blurred = true
 

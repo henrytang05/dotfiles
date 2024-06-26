@@ -31,3 +31,32 @@ funvocab() {
     make run
 }
 
+sconda () {
+    __conda_setup="$('/home/huytang/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
+    else
+        if [ -f "/home/huytang/anaconda3/etc/profile.d/conda.sh" ]; then
+            . "/home/huytang/anaconda3/etc/profile.d/conda.sh"
+        else
+            export PATH="/home/huytang/anaconda3/bin:$PATH"
+        fi
+    fi
+    unset __conda_setup
+
+    plug "conda-incubator/conda-zsh-completion"
+
+    fpath+=${HOME}/.local/share/zap/plugins/conda-zsh-completion
+    compinit
+}
+
+stfu () {
+    eval "$(thefuck --alias)"
+}
+
+cdl () {
+    cd $1 && eza -lAF --icons=always --group-directories-first --git
+}
+yolo () {
+    git commit -m "$(curl -s https://whatthecommit.com/index.txt)"
+}

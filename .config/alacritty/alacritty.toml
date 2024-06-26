@@ -42,7 +42,7 @@ dimensions = { columns = 160, lines = 80 }
 padding = { x = 4, y = 4 }
 # margin = { x = 0, y = 10}
 
-opacity = 0.8
+opacity = 0.7
 # Window decorations
 # Setting this to false will result in window without borders and title bar.
 decorations = "None"

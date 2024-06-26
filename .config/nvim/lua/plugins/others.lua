@@ -192,4 +192,13 @@ return {
       require("scrollEOF").setup()
     end,
   },
+  {
+    "m4xshen/smartcolumn.nvim",
+    opts = {
+      colorcolumn = "80",
+      disabled_filetypes = { "lazy", "help", "text", "markdown", "dashboard" },
+      custom_colorcolumn = {},
+      scope = "file",
+    },
+  },
 }

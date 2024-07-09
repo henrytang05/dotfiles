@@ -10,8 +10,9 @@ alias rmdir="trash -d"
 alias cb="clipboard"
 #
 alias l="eza -lAF --icons=always --group-directories-first --git"
-alias ls="eza -F --icons=always --group-directories-first --git"
-alias la="eza -AF --icons=always --group-directories-first --git"
+alias ls="eza -F --icons=always --group-directories-first"
+alias la="eza -AF --icons=always --group-directories-first"
+alias tree="eza -T -F --icons=always --group-directories-first --git"
 alias czsh="nvim ${ZDOTDIR}/.zshrc"
 alias tmuxconf="nvim ~/.tmux.conf"
 alias stmux="tmux source-file ~/.tmux.conf"
@@ -32,7 +33,7 @@ alias nv="nvim"
 #
 alias nnn="nnn -e"
 #
-# alias fzf="fzf --preview 'batcat --color=always {}'"
+alias fzf="fzf --preview 'batcat --color=always {}'"
 #
 #
 # export PERSONAL="~/Personal"
@@ -60,7 +61,6 @@ alias addali="nvim ${ZDOTDIR}/aliases.zsh"
 alias i3conf="nvim ~/.config/i3/config"
 # alias copilot="gh copilot"
 # bindkey '^ ' autosuggest-accept
-bindkey -e
 
 if command -v bat &> /dev/null; then
   alias cat="bat -pp --theme \"Visual Studio Dark+\"" 
@@ -71,3 +71,4 @@ fi
 alias wifi-connect="nmcli d wifi connect" #<tab>
 alias wifi-disconnect="nmcli d disconnect" #<tab>
 alias wifi="nmcli d wifi list"
+alias zelconf="nvim ~/.config/zellij/config.kdl"

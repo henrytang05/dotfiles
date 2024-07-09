@@ -14,17 +14,17 @@ keymap.set("n", "M", "5k", { desc = "Move up 5 lines", noremap = true })
 -- terminal
 keymap.set("n", "<leader>`", ":20sp|term<CR>", opts)
 
-keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll haft page down", noremap = true })
-keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll haft page up", noremap = true })
-keymap.set("n", "<C-f>", "<C-f>zz", { desc = "Scroll full page up", noremap = true })
-keymap.set("n", "<C-b>", "<C-b>zz", { desc = "Scroll full page down", noremap = true })
+keymap.set("n", "<C-d>", "<C-d>zz_", { desc = "Scroll haft page down", noremap = true })
+keymap.set("n", "<C-u>", "<C-u>zz_", { desc = "Scroll haft page up", noremap = true })
+keymap.set("n", "<C-f>", "<C-f>zz_", { desc = "Scroll full page up", noremap = true })
+keymap.set("n", "<C-b>", "<C-b>zz_", { desc = "Scroll full page down", noremap = true })
 
 keymap.set("n", "n", "nzzzv")
 keymap.set("n", "N", "Nzzzv")
 
 -- better register behavior
 keymap.set("n", "x", '"_x', opts)
-keymap.set("n", "c", '"_c', opts)
+keymap.set({ "n", "x" }, "c", '"_c', opts)
 
 keymap.set("n", "Q", "<nop>")
 keymap.set("n", "U", "<nop>")
@@ -68,13 +68,9 @@ vim.keymap.set(
   { noremap = true, expr = true, silent = true }
 )
 
-vim.keymap.set(
+keymap.set(
   "n",
   "k",
   [[v:count ? (v:count > 1 ? "m'" . v:count : '') . 'gk^' : 'gk']],
   { noremap = true, expr = true, silent = true }
 )
-vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#51B3EC", bold = true })
-vim.api.nvim_set_hl(0, "LineNr", { fg = "#b10aef", bold = true })
-vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#FB508F", bold = true })
-vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#b10aef", bold = true })

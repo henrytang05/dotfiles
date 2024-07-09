@@ -25,17 +25,16 @@ exec --no-startup-id dex --autostart --environment i3
 # kill any hanging polybar processes
 exec_always killall polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
-# exec_always --no-startup-id polybar
 exec_always --no-startup-id compton
 exec_always --no-startup-id picom
 # exec_always --no-startup-id feh --randomize --bg-fill ${HOME}/dotfiles/wallpapers/
 exec_always --no-startup-id feh  --bg-fill ${HOME}/dotfiles/wallpapers/aesthetic-wallpapers/images/beautiful.jpg
 
 # exec_always --no-startup-id wal -q -i ${HOME}/dotfiles/wallpapers 
+# exec --no-startup-id feh --bg-scale ~/Pictures/nice-blue-background.png
 exec_always --no-startup-id sxhkd
 exec_always --no-startup-id autorandr --load mobile
 exec --no-startup-id setxkbmap -option caps:escape
-# exec --no-startup-id feh --bg-scale ~/Pictures/nice-blue-background.png
 # # exec --no-startup-id xrdb -merge ~/.Xresources
 # exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -44,6 +43,8 @@ exec --no-startup-id setxkbmap -option caps:escape
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+exec_always --no-startup-id i3-battery-popup -n -D -t 2m -L 20 -I 2% -s ${HOME}/Music/mixkit-alert-bells-echo-765.wav
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.

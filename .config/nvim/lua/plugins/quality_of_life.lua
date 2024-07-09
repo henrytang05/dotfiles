@@ -11,53 +11,6 @@ return {
   },
 
   {
-    "stevearc/oil.nvim",
-    opts = {},
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("oil").setup({
-        -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
-        -- Set to false if you still want to use netrw.
-        default_file_explorer = true,
-        -- Id is automatically added at the beginning, and name at the end
-        -- See :help oil-columns
-        columns = {
-          "icon",
-          -- "permissions",
-          -- "size",
-          -- "mtime",
-        },
-        -- Buffer-local options to use for oil buffers
-        buf_options = {
-          buflisted = true,
-          bufhidden = "hide",
-        },
-        -- Window-local options to use for oil buffers
-        win_options = {
-          wrap = false,
-          signcolumn = "no",
-          cursorcolumn = false,
-          foldcolumn = "0",
-          spell = false,
-          list = false,
-          conceallevel = 3,
-          concealcursor = "nvic",
-        },
-        delete_to_trash = true,
-        skip_confirm_for_simple_edits = true,
-        prompt_save_on_select_new_entry = false,
-        cleanup_delay_ms = 2000,
-        experimental_watch_for_changes = false,
-        view_options = {
-          show_hidden = true,
-        },
-      })
-
-      vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-    end,
-  },
-
-  {
     "gbprod/substitute.nvim",
     config = function()
       require("substitute").setup()
@@ -73,83 +26,30 @@ return {
       vim.keymap.set("n", "sxc", require("substitute.exchange").cancel, { noremap = true, silent = true })
     end,
   },
-
   {
-    "rcarriga/nvim-notify",
-    opts = {
-      timeout = 10000,
+    "christoomey/vim-tmux-navigator",
+    cmd = {
+      "TmuxNavigateLeft",
+      "TmuxNavigateDown",
+      "TmuxNavigateUp",
+      "TmuxNavigateRight",
+      "TmuxNavigatePrevious",
     },
-  },
-  {
-    "mfussenegger/nvim-dap",
     keys = {
-      {
-        "<F10>",
-        function()
-          require("dap").step_into()
-        end,
-        desc = "Step Into",
-      },
-      {
-        "<F5>",
-        function()
-          require("dap").step_over()
-        end,
-        desc = "Step Over",
-      },
+      { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+      { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+      { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+      { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
   },
   {
-    "kawre/leetcode.nvim",
-    build = ":TSUpdate html",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "nvim-lua/plenary.nvim", -- required by telescope
-      "MunifTanjim/nui.nvim",
-
-      -- optional
-      "nvim-treesitter/nvim-treesitter",
-      "rcarriga/nvim-notify",
-      "nvim-tree/nvim-web-devicons",
-    },
-    cmd = "Leet",
-    opts = {
-      injector = { ---@type table<lc.lang, lc.inject>
-        ["cpp"] = {
-          before = {
-            "#include <bits/stdc++.h>",
-            "using namespace std;",
-
-            "struct TreeNode {",
-            "  int val;",
-            "  TreeNode* left;",
-            "  TreeNode* right;",
-            "  TreeNode() : val(0), left(nullptr), right(nullptr) {}",
-            "  TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}",
-            "  TreeNode(int x, TreeNode *left, TreeNode *right)",
-            "  : val(x), left(left), right(right) {}",
-            "};",
-
-            "struct ListNode {",
-            "  int val;",
-            "  ListNode* next;",
-            "  ListNode(int x) : val(x), next(NULL) {}",
-            "  ListNode(int x, ListNode* next) : val(x), next(next) {}",
-            "};",
-          },
-          after = {
-            "int main() {",
-            "  ios_base::sync_with_stdio(false);",
-            "  cin.tie(NULL);",
-            "  Solution s;",
-            "  return 0;",
-            "}",
-          },
-        },
-        ["java"] = {
-          before = "import java.util.*;",
-        },
-      },
+    "LintaoAmons/scratch.nvim",
+    tag = "v0.13.2",
+    lazy = true,
+    event = "VeryLazy",
+    keys = {
+      { "<leader>tc", "<cmd>Scratch<CR>", { silent = true, noremap = true, desc = "Open Scratch" } },
     },
   },
 }

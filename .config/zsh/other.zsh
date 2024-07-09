@@ -3,8 +3,6 @@
 # other options are: none, super ...
 # gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
 setxkbmap -option caps:escape
-
-fpath+=${HOME}/.local/share/zap/plugins/conda-zsh-completion
 #
 # # p paste from clipboard
 # vi-append-x-selection () { RBUFFER=$(xsel -o -p </dev/null)$RBUFFER; }

@@ -58,5 +58,6 @@ cdl () {
     cd $1 && eza -lAF --icons=always --group-directories-first --git
 }
 yolo () {
+    git add .
     git commit -m "$(curl -s https://whatthecommit.com/index.txt)"
 }

@@ -1,6 +1,6 @@
-export FUNCNEST=10000
-export EDITOR=/snap/bin/nvim 
-export VISUAL=/snap/bin/nvim
+export FUNCNEST=100000
+export EDITOR=$HOME/.local/bin/nvim
+export VISUAL=$HOME/.local/bin/nvim
 export STARSHIP_CONFIG=~/.config/starship.toml
 # export TERM=screen-256color
 # export ZSH_TMUX_AUTOSTART=true
@@ -35,5 +35,7 @@ export MANPATH=/home/huytang/.local/share/man:$MANPATH
 # export VI_MODE_CURSOR_OPPEND=4
 
 
-
-
+export ZELLIJ_AUTO_ATTACH=true
+export ZELLIJ_AUTO_EXIT=true
+export PATH=$PATH:$HOME/.config/i3/i3-battery-popup
+export BAT_THEME="Catppuccin Mocha"

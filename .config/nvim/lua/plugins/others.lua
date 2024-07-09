@@ -16,13 +16,10 @@ return {
   --     },
   --   },
   -- },
-  -- {
-  --   "tzachar/highlight-undo.nvim",
-  --   lazy = true,
-  --   opts = {
-  --     ...,
-  --   },
-  -- },
+  {
+    "tzachar/highlight-undo.nvim",
+    opts = {},
+  },
   { -- color previews & color picker
     "uga-rosa/ccc.nvim",
     lazy = true,
@@ -196,9 +193,102 @@ return {
     "m4xshen/smartcolumn.nvim",
     opts = {
       colorcolumn = "80",
-      disabled_filetypes = { "lazy", "help", "text", "markdown", "dashboard" },
+      disabled_filetypes = { "lazy", "help", "text", "markdown", "dashboard", "leetcode.nvim" },
       custom_colorcolumn = {},
       scope = "file",
     },
   },
+  {
+    "vim-utils/vim-husk",
+  },
+
+  {
+    "abecodes/tabout.nvim",
+    lazy = false,
+    config = function()
+      require("tabout").setup({
+        tabkey = "<S-Tab>", -- key to trigger tabout, set to an empty string to disable
+        backwards_tabkey = "<Tab>", -- key to trigger backwards tabout, set to an empty string to disable
+        act_as_tab = true, -- shift content if tab out is not possible
+        act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
+        default_tab = "<C-t>", -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
+        default_shift_tab = "<C-d>", -- reverse shift default action,
+        enable_backwards = true, -- well ...
+        completion = false, -- if the tabkey is used in a completion pum
+        tabouts = {
+          { open = "'", close = "'" },
+          { open = '"', close = '"' },
+          { open = "`", close = "`" },
+          { open = "(", close = ")" },
+          { open = "[", close = "]" },
+          { open = "{", close = "}" },
+        },
+        ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
+        exclude = {}, -- tabout will ignore these filetypes
+      })
+    end,
+    dependencies = { -- These are optional
+      "nvim-treesitter/nvim-treesitter",
+      "L3MON4D3/LuaSnip",
+      "hrsh7th/nvim-cmp",
+    },
+    opt = true, -- Set this to true if the plugin is optional
+    event = "InsertCharPre", -- Set the event to 'InsertCharPre' for better compatibility
+    priority = 1000,
+  },
+  {
+    "linux-cultist/venv-selector.nvim",
+    config = function()
+      require("venv-selector").setup({
+        anaconda_base_path = "/home/huytang/.conda",
+        anaconda_envs_path = "/home/huytang/anaconda3/envs",
+      })
+    end,
+  },
+  {
+    "danielfalk/smart-open.nvim",
+    branch = "0.2.x",
+    config = function()
+      require("telescope").load_extension("smart_open")
+      vim.keymap.set("n", "<leader><leader>", function()
+        require("telescope").extensions.smart_open.smart_open()
+      end, { noremap = true, silent = true })
+    end,
+    dependencies = {
+      "kkharji/sqlite.lua",
+      -- Only required if using match_algorithm fzf
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      -- Optional.  If installed, native fzy will be used when match_algorithm is fzy
+      { "nvim-telescope/telescope-fzy-native.nvim" },
+    },
+  },
+  {
+    "chrisgrieser/nvim-scissors",
+    dependencies = { "nvim-telescope/telescope.nvim", "garymjr/nvim-snippets", "echasnovski/mini.pairs" },
+    opts = {
+      -- snippetDir = "~/.config/nvim/snippets",
+    },
+  },
+  -- {
+  --   "HiPhish/rainbow-delimiters.nvim",
+  --   config = function()
+  --     require("rainbow-delimiters.setup").setup({
+  --       strategy = {
+  --         -- ...
+  --       },
+  --       query = {
+  --         -- ...
+  --       },
+  --       highlight = {
+  --         "RainbowDelimiterOrange",
+  --         "RainbowDelimiterYellow",
+  --         "RainbowDelimiterGreen",
+  --         "RainbowDelimiterCyan",
+  --         "RainbowDelimiterBlue",
+  --         "RainbowDelimiterViolet",
+  --         -- "RainbowDelimiterRed",
+  --       },
+  --     })
+  --   end,
+  -- }
 }

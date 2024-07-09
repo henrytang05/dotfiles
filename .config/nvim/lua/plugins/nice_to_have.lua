@@ -187,37 +187,7 @@ return {
       return keys
     end,
   },
-  -- {
-  --   "HiPhish/rainbow-delimiters.nvim",
-  --   config = function()
-  --     require("rainbow-delimiters.setup").setup({
-  --       strategy = {
-  --         -- ...
-  --       },
-  --       query = {
-  --         -- ...
-  --       },
-  --       highlight = {
-  --         "RainbowDelimiterOrange",
-  --         "RainbowDelimiterYellow",
-  --         "RainbowDelimiterGreen",
-  --         "RainbowDelimiterCyan",
-  --         "RainbowDelimiterBlue",
-  --         "RainbowDelimiterViolet",
-  --         -- "RainbowDelimiterRed",
-  --       },
-  --     })
-  --   end,
-  -- },
-  {
-    "LintaoAmons/scratch.nvim",
-    tag = "v0.13.2",
-    lazy = true,
-    event = "VeryLazy",
-    keys = {
-      { "<leader>tc", "<cmd>Scratch<CR>", { silent = true, noremap = true, desc = "Open Scratch" } },
-    },
-  },
+
   {
     "michaelb/sniprun",
     branch = "master",
@@ -232,7 +202,7 @@ return {
         -- your options
       })
       vim.keymap.set("x", "<leader>rc", ":SnipRun<CR>", { noremap = true, silent = true, desc = "Run code" })
-      vim.keymap.set("n", "<leader>rac", "vag:SnipRun<CR>", { remap = true, silent = true, desc = "Run all code" })
+      vim.keymap.set("n", "<leader>rac", "vag:SnipRun<CR>`.", { remap = true, silent = true, desc = "Run all code" })
     end,
   },
 
@@ -291,43 +261,6 @@ return {
         mode = { "n", "o", "x" },
         desc = "Spider-b",
       },
-    },
-  },
-  {
-    "folke/flash.nvim",
-    event = "VeryLazy",
-    ---@type Flash.Config
-    opts = {
-      modes = {
-        char = {
-          enabled = false,
-        },
-      },
-    },
-  -- stylua: ignore
-  keys = {
-        { "s", mode = { "n", "x", "o" }, false},
-        { "S", mode = { "n", "o", "x" }, false},
-        { "<leader>j", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-        { "<leader>J", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-    },
-  },
-
-  {
-    "danielfalk/smart-open.nvim",
-    branch = "0.2.x",
-    config = function()
-      require("telescope").load_extension("smart_open")
-      vim.keymap.set("n", "<leader><leader>", function()
-        require("telescope").extensions.smart_open.smart_open()
-      end, { noremap = true, silent = true })
-    end,
-    dependencies = {
-      "kkharji/sqlite.lua",
-      -- Only required if using match_algorithm fzf
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-      -- Optional.  If installed, native fzy will be used when match_algorithm is fzy
-      { "nvim-telescope/telescope-fzy-native.nvim" },
     },
   },
 }

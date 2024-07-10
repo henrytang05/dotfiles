@@ -66,7 +66,7 @@ return {
     event = "BufEnter",
     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
     opts = {
-      disabled_filetypes = { "qf", "netrw", "NvimTree", "lazy", "mason", "oil", "json", "undotree" },
+      disabled_filetypes = { "qf", "netrw", "NvimTree", "lazy", "mason", "oil", "json", "undotree", "help" },
       max_count = 10,
       disable_mouse = true,
       hints = {

@@ -1,4 +1,4 @@
-#files: 969	version: 5.8.1
+#files: 971	version: 5.8.1
 
 _comps=(
 '-' '_precommand'
@@ -1683,6 +1683,7 @@ _comps=(
 'ytalk' '_other_accounts'
 'yum' '_yum'
 'yumdb' '_yum'
+'zap' '_zap'
 'zargs' '_zargs'
 'zathura' '_zathura'
 'zcalc' '_zcalc'
@@ -1695,6 +1696,7 @@ _comps=(
 'zeal' '_zeal'
 'zed' '_zed'
 'zegrep' '_grep'
+'zellij' '_zellij'
 'zen' '_webbrowser'
 'zf_chgrp' '_chown'
 'zf_chmod' '_chmod'
@@ -2037,7 +2039,7 @@ autoload -Uz _bootctl _busctl _bwrap _curl _dpkg-parsechangelog \
             _zcalc_line _zcompile _zed _zftp _zle \
             _zmodload _zmv _zparseopts _zpty _zsh-mime-handler \
             _zsocket _zstyle _ztodo _hwinfo _osc \
-            _SUSEconfig _yast _zypper
+            _SUSEconfig _yast _zypper _zap _zellij
 autoload -Uz +X _call_program
 
 typeset -gUa _comp_assocs

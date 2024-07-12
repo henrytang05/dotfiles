@@ -35,7 +35,11 @@ export MANPATH=/home/huytang/.local/share/man:$MANPATH
 # export VI_MODE_CURSOR_OPPEND=4
 
 
-export ZELLIJ_AUTO_ATTACH=true
-export ZELLIJ_AUTO_EXIT=true
+# export ZELLIJ_AUTO_ATTACH=true
+# export ZELLIJ_AUTO_EXIT=true
 export PATH=$PATH:$HOME/.config/i3/i3-battery-popup
 export BAT_THEME="Catppuccin Mocha"
+
+path=('/home/huytang/.juliaup/bin' $path)
+export PATH
+

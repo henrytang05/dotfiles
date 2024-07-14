@@ -1,5 +1,6 @@
 .config/nvim/*.json
 wallpapers/
-**/.zsh_history
+.config/zsh/.zsh_*
+.config/zsh/.p10k.zsh
 
 

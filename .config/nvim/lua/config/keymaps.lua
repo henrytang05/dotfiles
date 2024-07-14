@@ -12,7 +12,6 @@ keymap.set("n", "M", "5k", { desc = "Move up 5 lines", noremap = true })
 -- keymap.set("n", "L", "<cmd>bnext<CR>", { desc = "Next buffer", noremap = true })
 -- keymap.set("n", "H", "<cmd>bprev<CR>", { desc = "Previous buffer", noremap = true })
 -- terminal
-keymap.set("n", "<leader>`", ":20sp|term<CR>", opts)
 
 keymap.set("n", "<C-d>", "<C-d>zz_", { desc = "Scroll haft page down", noremap = true })
 keymap.set("n", "<C-u>", "<C-u>zz_", { desc = "Scroll haft page up", noremap = true })

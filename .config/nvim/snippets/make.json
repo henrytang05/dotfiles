@@ -1,0 +1,1 @@
+{"CXX (MakeFile template)":{"body":["CXX = g++","","FLAGS = -g -O2 -Wunused-const-variable","","BIN = main.exe","","SRC = *.cpp","","all: \\$(SRC)","\t$(CXX) -o \\$(BIN) \\$(SRC) \\$(FLAGS)","","run: \\$(BIN)","\tmake all","\t@.\/\\$(BIN) "],"prefix":"CXX (MakeFile template)"}}

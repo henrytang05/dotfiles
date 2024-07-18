@@ -1,4 +1,4 @@
-import = ["~/.config/alacritty/theme/catppuccin-mocha.toml"]
+import = ["~/.config/alacritty/theme/coolnight.toml"]
 # import = ["~/.config/alacritty/theme/catppuccin-latte.toml"]
 live_config_reload = true
 

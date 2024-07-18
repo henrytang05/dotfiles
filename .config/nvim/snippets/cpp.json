@@ -1,1 +1,1 @@
-{"#include (template c++)":{"body":["#include <iostream>","int main() { ","    $0","    return 0;","}"],"prefix":"#include (template c++)"}}
+{"#include (template c++)":{"prefix":"#include (template c++)","body":["#include <iostream>","int main() { ","    $0","    return 0;","}"]},"#ifndef (custom)":{"body":["#ifndef ${1:FILE_NAME}","#define $1","","class ${2:CLASS_NAME} {","public:","    ${2:CLASS_NAME}();","    ~${2:CLASS_NAME}();","private:","    $0","};","","#endif \/\/$1"],"prefix":"#ifndef (custom)"}}

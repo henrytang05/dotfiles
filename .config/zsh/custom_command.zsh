@@ -61,3 +61,7 @@ yolo () {
     git add .
     git commit -m "$(curl -s https://whatthecommit.com/index.txt)"
 }
+
+mfeh() {
+    feh --auto-zoom --bg-fill $1
+}

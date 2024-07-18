@@ -221,7 +221,7 @@ bindsym $mod+r mode "resize"
 
 set $leave_menu Leave Menu: (1)Lock, (2)Logout, (3)Suspend, (4)Hibernate, (5)Reboot, (6)Shutdown
 mode "$leave_menu" {
-    bindsym  exec --no-startup-id $myscripts/lock-session.sh, mode "default"
+    bindsym 1 exec --no-startup-id $myscripts/lock-session.sh, mode "default"
     bindsym 2 exec --no-startup-id i3-msg exit, mode "default"
     bindsym 3 exec --no-startup-id systemctl suspend, mode "default"
     bindsym 4 exec --no-startup-id systemctl hibernate, mode "default"

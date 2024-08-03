@@ -50,6 +50,14 @@ sconda () {
     compinit
 }
 
+
+linalg() {
+    cd ~/Personal/jupyter; 
+    sconda;
+    conda activate LinAlg;
+    # jupyter-lab;
+}
+
 stfu () {
     eval "$(thefuck --alias)"
 }

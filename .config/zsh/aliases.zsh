@@ -21,7 +21,7 @@ alias szsh="source ${ZDOTDIR}/.zshrc"
 
 
 alias python="python3"
-alias pip="pip3"
+# alias pip="pip3"
 #
 #
 alias dir="dir --color"

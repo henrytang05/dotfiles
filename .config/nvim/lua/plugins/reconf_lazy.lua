@@ -35,8 +35,12 @@ return {
       },
       modes = {
         char = {
+          autohide = true,
           jump_labels = true,
           multi_line = false,
+          jump = {
+            autojump = true,
+          },
         },
       },
     },

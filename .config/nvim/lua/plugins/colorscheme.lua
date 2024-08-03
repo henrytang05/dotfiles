@@ -1,5 +1,13 @@
 return {
   {
+    "baliestri/aura-theme",
+    lazy = false,
+    priority = 1000,
+    config = function(plugin)
+      vim.opt.rtp:append(plugin.dir .. "/packages/neovim")
+    end,
+  },
+  {
     "folke/tokyonight.nvim",
     lazy = false,
     opts = {
@@ -55,10 +63,10 @@ return {
     },
   },
 
-  {
-    "olimorris/onedarkpro.nvim",
-    priority = 1000, -- Ensure it loads first
-  },
+  -- {
+  --   "olimorris/onedarkpro.nvim",
+  --   priority = 1000, -- Ensure it loads first
+  -- },
 
   {
     "navarasu/onedark.nvim",
@@ -66,7 +74,7 @@ return {
     priority = 1000, -- Ensure it loads first
     config = function()
       require("onedark").setup({
-
+        styles = "darker",
         transparent = true,
       })
     end,
@@ -207,10 +215,12 @@ return {
   },
   { "rose-pine/neovim", name = "rose-pine" },
   { "sam4llis/nvim-tundra" },
+  -- Using Packer
+  { "sainnhe/edge" },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin-mocha",
+      colorscheme = "tokyonight-night",
     },
   },
 }

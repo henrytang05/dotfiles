@@ -26,11 +26,6 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
-funvocab() {
-    cd ~/Personal/Cpp/learn
-    make run
-}
-
 sconda () {
     __conda_setup="$('/home/huytang/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
     if [ $? -eq 0 ]; then
@@ -60,11 +55,21 @@ linalg() {
 
 stfu () {
     eval "$(thefuck --alias)"
+    alias fucku="fuck --yeah"
 }
 
 cdl () {
     cd $1 && eza -lAF --icons=always --group-directories-first --git
 }
+
+gimmeh (){
+    mkdir $1 && cd $1
+}
+
+mf () {
+    mv $(find . -maxdepth 1 -type f) $1
+}
+
 yolo () {
     git add .
     git commit -m "$(curl -s https://whatthecommit.com/index.txt)"
@@ -72,4 +77,8 @@ yolo () {
 
 mfeh() {
     feh --auto-zoom --bg-fill $1
+}
+
+show-wifi() {
+    nmcli device wifi show-password
 }

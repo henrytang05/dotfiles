@@ -43,13 +43,4 @@ return {
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
   },
-  {
-    "LintaoAmons/scratch.nvim",
-    tag = "v0.13.2",
-    lazy = true,
-    event = "VeryLazy",
-    keys = {
-      { "<leader>tc", "<cmd>Scratch<CR>", { silent = true, noremap = true, desc = "Open Scratch" } },
-    },
-  },
 }

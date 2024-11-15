@@ -1,11 +1,5 @@
 return {
   {
-    "rcarriga/nvim-notify",
-    opts = {
-      timeout = 10000,
-    },
-  },
-  {
     "mfussenegger/nvim-dap",
     keys = {
       {

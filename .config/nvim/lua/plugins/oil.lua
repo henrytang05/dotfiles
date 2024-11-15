@@ -12,7 +12,7 @@ return {
       columns = {
         "icon",
         -- "permissions",
-        -- "size",
+        "size",
         -- "mtime",
       },
       -- Buffer-local options to use for oil buffers
@@ -38,6 +38,17 @@ return {
       experimental_watch_for_changes = true,
       view_options = {
         show_hidden = true,
+      },
+      keymaps = {
+        ["g?"] = "actions.show_help",
+        ["<CR>"] = "actions.select",
+        ["<C-v>"] = { "actions.select", opts = { vertical = true }, desc = "Open the entry in a vertical split" },
+        ["<C-s>"] = { "actions.select", opts = { horizontal = true }, desc = "Open the entry in a horizontal split" },
+        ["<C-r>"] = "actions.refresh",
+        ["<C-h>"] = false,
+        ["<C-l>"] = false,
+        ["<C-j>"] = false,
+        ["<C-k>"] = false,
       },
     })
 

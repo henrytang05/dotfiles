@@ -1,5 +1,4 @@
 return {
-
   {
     "LunarVim/bigfile.nvim",
     event = "BufReadPre",
@@ -42,6 +41,9 @@ return {
     opts = {
       has_breadcrumbs = true,
       watermark = "Henry Tăng",
+      has_line_number = true,
+      bg_theme = "sea",
+      bg_padding = 0,
     },
     keys = {
       { "<leader>cs", "<cmd>CodeSnap<cr>", mode = "x", desc = "Save selected code snapshot into clipboard" },
@@ -67,6 +69,8 @@ return {
     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
     opts = {
       disabled_filetypes = {
+        "copilot-chat",
+        "trouble",
         "dapui_scopes",
         "noice",
         "qf",
@@ -91,56 +95,56 @@ return {
     },
   },
 
-  {
-    "pocco81/true-zen.nvim",
-    lazy = true,
-    event = "VeryLazy",
-    opts = {
-      integrations = {
-        tmux = true,
-      },
-    },
-    config = function(_plugin, opts)
-      require("true-zen").setup(opts)
-    end,
-    keys = {
-      {
-        "<leader>zn",
-        "<cmd>TZNarrow<cr>",
-        mode = "n",
-        desc = "Narrow focused",
-        noremap = true,
-      },
-      {
-        "<leader>zn",
-        "<cmd>'<,'>TZNarrow<cr>",
-        mode = "v",
-        desc = "Ranged narrow focused",
-        noremap = true,
-      },
-      {
-        "<leader>zf",
-        "<cmd>TZFocus<cr>",
-        mode = "n",
-        desc = "Focued mode",
-        noremap = true,
-      },
-      {
-        "<leader>zm",
-        "<cmd>TZMinimalist<cr>",
-        mode = "n",
-        desc = "Minimalist mode",
-        noremap = true,
-      },
-      {
-        "<leader>za",
-        "<cmd>TZAtaraxis<cr>",
-        mode = "n",
-        desc = "Ataraxis mode",
-        noremap = true,
-      },
-    },
-  },
+  -- {
+  --   "pocco81/true-zen.nvim",
+  --   lazy = true,
+  --   event = "VeryLazy",
+  --   opts = {
+  --     integrations = {
+  --       tmux = true,
+  --     },
+  --   },
+  --   config = function(_plugin, opts)
+  --     require("true-zen").setup(opts)
+  --   end,
+  --   keys = {
+  --     {
+  --       "<leader>zn",
+  --       "<cmd>TZNarrow<cr>",
+  --       mode = "n",
+  --       desc = "Narrow focused",
+  --       noremap = true,
+  --     },
+  --     {
+  --       "<leader>zn",
+  --       "<cmd>'<,'>TZNarrow<cr>",
+  --       mode = "v",
+  --       desc = "Ranged narrow focused",
+  --       noremap = true,
+  --     },
+  --     {
+  --       "<leader>zf",
+  --       "<cmd>TZFocus<cr>",
+  --       mode = "n",
+  --       desc = "Focued mode",
+  --       noremap = true,
+  --     },
+  --     {
+  --       "<leader>zm",
+  --       "<cmd>TZMinimalist<cr>",
+  --       mode = "n",
+  --       desc = "Minimalist mode",
+  --       noremap = true,
+  --     },
+  --     {
+  --       "<leader>za",
+  --       "<cmd>TZAtaraxis<cr>",
+  --       mode = "n",
+  --       desc = "Ataraxis mode",
+  --       noremap = true,
+  --     },
+  --   },
+  -- },
 
   {
     "folke/twilight.nvim",
@@ -218,19 +222,6 @@ return {
     end,
   },
 
-  -- {
-  --   "chrishrb/gx.nvim",
-  --   lazy = true,
-  --   keys = { { "gx", "<cmd>Browse<cr>", mode = { "n", "x" } } },
-  --   event = "VeryLazy",
-  --   cmd = { "Browse" },
-  --   init = function()
-  --     vim.g.netrw_nogx = 1 -- disable netrw gx
-  --   end,
-  --   dependencies = { "nvim-lua/plenary.nvim" },
-  --   config = true, -- default settings
-  --   submodules = false,
-  -- },
   {
     "chrisgrieser/nvim-spider",
     lazy = true,
@@ -273,6 +264,15 @@ return {
         mode = { "n", "o", "x" },
         desc = "Spider-b",
       },
+    },
+  },
+  {
+    "LintaoAmons/scratch.nvim",
+    tag = "v0.13.2",
+    lazy = true,
+    event = "VeryLazy",
+    keys = {
+      { "<leader>tc", "<cmd>Scratch<CR>", { silent = true, noremap = true, desc = "Open Scratch" } },
     },
   },
 }

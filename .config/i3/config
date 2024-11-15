@@ -23,18 +23,18 @@ font pango:Maple Mono NF 10
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 # kill any hanging polybar processes
-exec_always killall polybar
-exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 exec_always --no-startup-id compton
 exec_always --no-startup-id picom
 # exec_always --no-startup-id feh --randomize --bg-fill ${HOME}/dotfiles/wallpapers/
 exec_always --no-startup-id feh  --bg-fill ${HOME}/dotfiles/wallpapers/aesthetic-wallpapers/images/beautiful.jpg
 
+exec_always killall polybar
+exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 # exec_always --no-startup-id wal -q -i ${HOME}/dotfiles/wallpapers 
 # exec --no-startup-id feh --bg-scale ~/Pictures/nice-blue-background.png
 exec_always --no-startup-id sxhkd
 exec_always --no-startup-id autorandr --load mobile
-exec --no-startup-id setxkbmap -option caps:escape
+exec_always --no-startup-id setxkbmap -option caps:escape
 # # exec --no-startup-id xrdb -merge ~/.Xresources
 # exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -57,6 +57,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+# bindsym fn12 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+# bindsym fn11 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym $mod+d exec rofi -show-icons -sidebar-mode -show drun -terminal alacritty -theme ~/.config/rofi/config.rasi 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -253,5 +255,5 @@ mode "move" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-default_orientation horizontal 
+default_orientation vertical 
 for_window [class=".*"] split toggle 

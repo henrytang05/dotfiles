@@ -1,4 +1,3 @@
-
 alias nvim="~/.local/bin/nvim"
 alias du="du -h"
 alias bat="batcat"
@@ -8,6 +7,7 @@ alias which="which -a"
 alias rm="trash"
 alias rmdir="trash -d"
 alias cb="clipboard"
+# alias cp="cp - r"
 #
 alias l="eza -lAF --icons=always --group-directories-first --git"
 alias ls="eza -F --icons=always --group-directories-first"
@@ -53,22 +53,17 @@ alias vf='fzf_output=$(fzf --height 40% --reverse --preview "batcat --style=numb
 # alias yolo="git commit -m "$(curl -s https://whatthecommit.com/index.txt)""
 alias bye="exit"
 alias cya="shutdown -h now"
-alias gimmeh="touch"
 alias huhu="echo -e \"It's okay bro! \nYou are doing great! \nKeep going! \nTrust the process!\""
-alias fucku="fuck --yeah"
 alias alaconf="nvim ~/.config/alacritty/alacritty.toml"
 alias addali="nvim ${ZDOTDIR}/aliases.zsh"
 alias i3conf="nvim ~/.config/i3/config"
 # alias copilot="gh copilot"
 # bindkey '^ ' autosuggest-accept
 
-if command -v bat &> /dev/null; then
-  alias cat="bat -pp --theme \"Visual Studio Dark+\"" 
-  alias catt="bat --theme \"Visual Studio Dark+\"" 
-fi
 
 # Wifi
 alias wifi-connect="nmcli d wifi connect" #<tab>
 alias wifi-disconnect="nmcli d disconnect" #<tab>
 alias wifi="nmcli d wifi list"
 alias zelconf="nvim ~/.config/zellij/config.kdl"
+

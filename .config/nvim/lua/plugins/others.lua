@@ -1,4 +1,11 @@
 return {
+
+  {
+    "olrtg/nvim-emmet",
+    config = function()
+      vim.keymap.set({ "n", "v" }, "<leader>xe", require("nvim-emmet").wrap_with_abbreviation)
+    end,
+  },
   -- {
   --   "smoka7/multicursors.nvim",
   --   event = "VeryLazy",
@@ -16,10 +23,10 @@ return {
   --     },
   --   },
   -- },
-  {
-    "tzachar/highlight-undo.nvim",
-    opts = {},
-  },
+  -- {
+  --   "tzachar/highlight-undo.nvim",
+  --   opts = {},
+  -- },
   { -- color previews & color picker
     "uga-rosa/ccc.nvim",
     lazy = true,
@@ -236,15 +243,6 @@ return {
   --   event = "InsertCharPre", -- Set the event to 'InsertCharPre' for better compatibility
   --   priority = 1000,
   -- },
-  {
-    "linux-cultist/venv-selector.nvim",
-    config = function()
-      require("venv-selector").setup({
-        anaconda_base_path = "/home/huytang/.conda",
-        anaconda_envs_path = "/home/huytang/anaconda3/envs",
-      })
-    end,
-  },
   {
     "danielfalk/smart-open.nvim",
     branch = "0.2.x",

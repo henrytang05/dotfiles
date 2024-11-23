@@ -53,7 +53,7 @@ return {
         neotest = true,
         neotree = true,
         noice = true,
-        notify = true,
+        -- notify = true,
         semantic_tokens = true,
         telescope = true,
         treesitter = true,
@@ -116,7 +116,6 @@ return {
   } },
   { "cpea2506/one_monokai.nvim", opts = { transparent = true } },
   {
-
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "tokyonight-night",

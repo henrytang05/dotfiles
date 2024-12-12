@@ -21,45 +21,10 @@ return {
 
   {
     "catppuccin/nvim",
-    lazy = false,
     name = "catppuccin",
+    priority = 1100, -- Ensure it loads first
     opts = {
       transparent_background = true,
-      integrations = {
-        aerial = true,
-        alpha = true,
-        cmp = true,
-        dashboard = true,
-        flash = true,
-        gitsigns = true,
-        headlines = true,
-        illuminate = true,
-        indent_blankline = { enabled = true },
-        leap = true,
-        lsp_trouble = true,
-        mason = true,
-        markdown = true,
-        mini = true,
-        native_lsp = {
-          enabled = true,
-          underlines = {
-            errors = { "undercurl" },
-            hints = { "undercurl" },
-            warnings = { "undercurl" },
-            information = { "undercurl" },
-          },
-        },
-        navic = { enabled = true, custom_bg = "lualine" },
-        neotest = true,
-        neotree = true,
-        noice = true,
-        -- notify = true,
-        semantic_tokens = true,
-        telescope = true,
-        treesitter = true,
-        treesitter_context = true,
-        which_key = true,
-      },
     },
   },
 
@@ -81,23 +46,16 @@ return {
     "Mofiqul/dracula.nvim",
 
     priority = 1000, -- Ensure it loads first
-    config = function()
-      require("dracula").setup({
-        transparent_bg = true,
-      })
-    end,
+    opts = {
+      transparent_bg = true,
+    },
   },
 
   {
     "EdenEast/nightfox.nvim",
-
-    config = function()
-      require("nightfox").setup({
-        options = {
-          transparent = true,
-        },
-      })
-    end,
+    opts = {
+      transparent = true,
+    },
   },
   {
     "diegoulloao/neofusion.nvim",
@@ -111,14 +69,23 @@ return {
   { "sam4llis/nvim-tundra" },
   -- Using Packer
   { "sainnhe/edge" },
-  { "loctvl842/monokai-pro.nvim", opts = {
-    transparent_background = true,
+
+  {
+    "loctvl842/monokai-pro.nvim",
+    lazy = true,
+    opts = {
+      transparent_background = true,
+    },
+  },
+
+  { "cpea2506/one_monokai.nvim", lazy = true, opts = {
+    transparent = true,
   } },
-  { "cpea2506/one_monokai.nvim", opts = { transparent = true } },
+
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight-night",
+      colorscheme = "catppuccin-mocha",
     },
   },
 }

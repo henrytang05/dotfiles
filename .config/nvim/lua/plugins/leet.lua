@@ -12,7 +12,10 @@ return {
   },
   cmd = "Leet",
   opts = {
-    injector = { ---@type table<lc.lang, lc.inject>
+    plugins = {
+      non_standalone = false,
+    },
+    injector = {
       ["cpp"] = {
         before = {
           "#include <bits/stdc++.h>",

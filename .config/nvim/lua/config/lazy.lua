@@ -27,9 +27,14 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.editor.harpoon2" },
     { import = "lazyvim.plugins.extras.editor.refactoring" },
     { import = "lazyvim.plugins.extras.ai.copilot-chat" },
+    { import = "lazyvim.plugins.extras.ui.smear-cursor" },
 
     -- import/override with your plugins
     { import = "plugins" },
+  },
+
+  rocks = {
+    hererocks = true, -- recommended if you do not have global installation of Lua 5.1.
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.

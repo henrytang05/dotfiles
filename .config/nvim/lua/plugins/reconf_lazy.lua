@@ -10,6 +10,13 @@ return {
         desc = "Step Into",
       },
       {
+        "<F11>",
+        function()
+          require("dap").step_out()
+        end,
+        desc = "Step out",
+      },
+      {
         "<F5>",
         function()
           require("dap").step_over()
@@ -22,22 +29,26 @@ return {
     "folke/flash.nvim",
     event = "VeryLazy",
     ---@type Flash.Config
+    --   jump = {
+    --     -- automatically jump when there is only one match
+    --     autojump = true,
+    --   },
+    -- modes = {
+    --   char = {
+    --     multi_line = false,
+    --   },
+    -- },
+    -- },
     opts = {
-      jump = {
-        -- automatically jump when there is only one match
-        autojump = true,
-      },
       modes = {
         char = {
-          autohide = true,
-          jump_labels = true,
           multi_line = false,
-          jump = {
-            autojump = true,
-          },
+
+          highlight = { backdrop = false },
         },
       },
     },
+
     keys = {
       { "s", mode = { "n", "x", "o" }, false },
       { "S", mode = { "n", "o", "x" }, false },
@@ -81,6 +92,52 @@ return {
         "regex",
         "vim",
         "yaml",
+      },
+    },
+  },
+  {
+    "folke/snacks.nvim",
+    opts = {
+
+      dashboard = {
+        sections = {
+          { section = "header" },
+          { section = "keys", gap = 1, padding = 1 },
+          { section = "startup" },
+          {
+            text = "",
+            pane = 2,
+            padding = 5,
+          },
+          {
+            section = "terminal",
+            cmd = "pokemon-colorscripts -n giratina --no-title; sleep .1",
+            pane = 2,
+            indent = 15,
+            height = 20,
+            align = "center",
+          },
+        },
+      },
+    },
+    keys = {
+      {
+        "<C-.>",
+        function()
+          Snacks.terminal.toggle(nil, {
+            win = {
+              width = 0.6,
+              border = "rounded",
+              height = 0.5,
+              style = "float",
+              keys = {
+                q = "hide",
+              },
+            },
+          })
+        end,
+        mode = { "n", "t" }, -- Works in normal and terminal modes
+        desc = "Toggle Scratch Buffer",
       },
     },
   },

@@ -57,6 +57,7 @@ vim.keymap.set("i", "<C-j>", 'copilot#Accept("\\<CR>")', {
   silent = true,
 })
 vim.keymap.set("n", "<leader>ai", "<cmd>Copilot disable<CR>", opts)
+vim.keymap.set("n", "<leader>ae", "<cmd>Copilot enable<CR>", opts)
 vim.g.copilot_no_tab_map = true
 -- vim.b.copilot_enabled = true
 keymap.set("i", "<C-H>", "<C-W>", { noremap = true })

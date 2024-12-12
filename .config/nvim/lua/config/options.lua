@@ -28,6 +28,5 @@ vim.g.mapleader = " "
 
 vim.o.splitbelow = true
 vim.o.splitright = true
-
 -- vim.o.timeout = false
--- vim.g.cheat_default_window_layout = "split"
+-- vim.g.cheat_default_window_layout = ""

@@ -44,6 +44,7 @@ return {
         ["<CR>"] = "actions.select",
         ["<C-v>"] = { "actions.select", opts = { vertical = true }, desc = "Open the entry in a vertical split" },
         ["<C-s>"] = { "actions.select", opts = { horizontal = true }, desc = "Open the entry in a horizontal split" },
+        ["q"] = { "actions.close", mode = "n" },
         ["<C-r>"] = "actions.refresh",
         ["<C-h>"] = false,
         ["<C-l>"] = false,
@@ -52,6 +53,7 @@ return {
       },
     })
 
-    vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+    vim.keymap.set("n", "+", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+    vim.keymap.set("n", "-", require("oil").toggle_float, { desc = "Open parent directory" })
   end,
 }

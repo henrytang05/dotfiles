@@ -1,11 +1,11 @@
 return {
 
-  {
-    "olrtg/nvim-emmet",
-    config = function()
-      vim.keymap.set({ "n", "v" }, "<leader>xe", require("nvim-emmet").wrap_with_abbreviation)
-    end,
-  },
+  -- {
+  --   "olrtg/nvim-emmet",
+  --   config = function()
+  --     vim.keymap.set({ "n", "v" }, "<leader>xe", require("nvim-emmet").wrap_with_abbreviation)
+  --   end,
+  -- },
   -- {
   --   "smoka7/multicursors.nvim",
   --   event = "VeryLazy",
@@ -137,7 +137,7 @@ return {
         },
       })
 
-      vim.keymap.set("n", "<leader>o", "<cmd>Telescope neoclip<CR>", { desc = "Telescope Neoclip" })
+      vim.keymap.set("n", "<leader>op", "<cmd>Telescope neoclip<CR>", { desc = "Telescope Neoclip" })
     end,
   },
   {
@@ -196,7 +196,7 @@ return {
     "m4xshen/smartcolumn.nvim",
     opts = {
       colorcolumn = "80",
-      disabled_filetypes = { "lazy", "help", "text", "markdown", "dashboard", "leetcode.nvim" },
+      disabled_filetypes = { "lazy", "help", "text", "markdown", "snacks_dashboard", "leetcode.nvim" },
       custom_colorcolumn = {},
       scope = "file",
     },
@@ -248,4 +248,17 @@ return {
   --     })
   --   end,
   -- }
+
+  -- {
+  --   "3rd/image.nvim",
+  --   build = false, -- so that it doesn't build the rock https://github.com/3rd/image.nvim/issues/91#issuecomment-2453430239
+  --   opts = {},
+  -- },
+
+  {
+    "3rd/image.nvim",
+    opts = {
+      backend = "kitty",
+    },
+  },
 }

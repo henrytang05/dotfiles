@@ -14,3 +14,12 @@ autocmd("BufEnter", {
   group = general,
   desc = "Disable New Line Comment",
 })
+-- vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+--   pattern = "*",
+--   callback = function()
+--     -- Convert tabs to spaces (optional, adjust tabstop as needed)
+--     vim.cmd([[
+--             retab!
+--         ]])
+--   end,
+-- })

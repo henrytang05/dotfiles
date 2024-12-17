@@ -12,12 +12,6 @@ return {
       { "<leader>fmc", "<cmd>CellularAutomaton scramble<CR>", mode = "n", { desc = "F*ck my code" } },
     },
   },
-  {
-    "NStefan002/speedtyper.nvim",
-    cmd = "Speedtyper",
-    opts = {},
-    lazy = true,
-  },
   -- {
   --   "NStefan002/donut.nvim",
   --   version = "*",

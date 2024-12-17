@@ -77,66 +77,19 @@ return {
   {
     "AckslD/nvim-neoclip.lua",
     dependencies = {
-      { "nvim-telescope/telescope.nvim" },
+      { "ibhagwan/fzf-lua" },
+    },
+    opts = {
+      keys = {
+        fzf = {
+          select = "default",
+          paste = "<cr>",
+          paste_behind = "ctrl-k",
+          custom = {},
+        },
+      },
     },
     config = function()
-      require("neoclip").setup({
-        history = 1000,
-        enable_persistent_history = false,
-        length_limit = 1048576,
-        continuous_sync = false,
-        db_path = vim.fn.stdpath("data") .. "/databases/neoclip.sqlite3",
-        filter = nil,
-        preview = true,
-        prompt = nil,
-        default_register = '"',
-        default_register_macros = "q",
-        enable_macro_history = true,
-        content_spec_column = false,
-        disable_keycodes_parsing = false,
-        on_select = {
-          move_to_front = false,
-          close_telescope = true,
-        },
-        on_paste = {
-          set_reg = false,
-          move_to_front = false,
-          close_telescope = true,
-        },
-        on_replay = {
-          set_reg = false,
-          move_to_front = false,
-          close_telescope = true,
-        },
-        on_custom_action = {
-          close_telescope = true,
-        },
-        keys = {
-          telescope = {
-            i = {
-              select = "<cr>",
-              paste = "<c-j>",
-              paste_behind = "<c-k>",
-              replay = "<c-q>", -- replay a macro
-              delete = "<c-d>", -- delete an entry
-              edit = "<c-e>", -- edit an entry
-              custom = {},
-            },
-            n = {
-              select = "<cr>",
-              paste = "p",
-              --- It is possible to map to more than one key.
-              -- paste = { 'p', '<c-p>' },
-              paste_behind = "P",
-              creplay = "q",
-              delete = "d",
-              edit = "e",
-              custom = {},
-            },
-          },
-        },
-      })
-
       vim.keymap.set("n", "<leader>op", "<cmd>Telescope neoclip<CR>", { desc = "Telescope Neoclip" })
     end,
   },
@@ -203,25 +156,8 @@ return {
   },
 
   {
-    "danielfalk/smart-open.nvim",
-    branch = "0.2.x",
-    config = function()
-      require("telescope").load_extension("smart_open")
-      vim.keymap.set("n", "<leader><leader>", function()
-        require("telescope").extensions.smart_open.smart_open()
-      end, { noremap = true, silent = true })
-    end,
-    dependencies = {
-      "kkharji/sqlite.lua",
-      -- Only required if using match_algorithm fzf
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-      -- Optional.  If installed, native fzy will be used when match_algorithm is fzy
-      { "nvim-telescope/telescope-fzy-native.nvim" },
-    },
-  },
-  {
     "chrisgrieser/nvim-scissors",
-    dependencies = { "nvim-telescope/telescope.nvim", "garymjr/nvim-snippets", "echasnovski/mini.pairs" },
+    dependencies = { "ibhagwan/fzf-lua", "garymjr/nvim-snippets", "echasnovski/mini.pairs" },
     opts = {
       -- snippetDir = "~/.config/nvim/snippets",
     },
@@ -248,17 +184,4 @@ return {
   --     })
   --   end,
   -- }
-
-  -- {
-  --   "3rd/image.nvim",
-  --   build = false, -- so that it doesn't build the rock https://github.com/3rd/image.nvim/issues/91#issuecomment-2453430239
-  --   opts = {},
-  -- },
-
-  {
-    "3rd/image.nvim",
-    opts = {
-      backend = "kitty",
-    },
-  },
 }

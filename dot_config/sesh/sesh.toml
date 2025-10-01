@@ -1,0 +1,16 @@
+# open the file manager
+[[session]]
+name = "Downloads 📥"
+path = "~/Downloads"
+startup_command = "yazi"
+
+# open a file
+[[session]]
+name = "tmux config"
+path = "~"
+startup_command = "nvim ~/.tmux.conf"
+
+[[session]]
+name = "kanata config"
+path = "~/.config/kanata"
+startup_command = "nvim kanata.kbd"

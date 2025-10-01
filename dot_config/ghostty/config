@@ -1,0 +1,39 @@
+theme = dark:Catppuccin Mocha,light:Catppuccin Latte
+confirm-close-surface = false
+background-opacity = 1
+
+font-family = "Maple Mono NF"
+font-family-italic = "Maple Mono NF Italic"
+font-family-bold-italic = "Maple Mono NF Bold Italic"
+font-size = 16
+
+cursor-invert-fg-bg = false
+window-theme = ghostty
+
+gtk-titlebar = false
+
+gtk-single-instance = true
+gtk-tabs-location = bottom
+gtk-wide-tabs = false
+window-padding-y = 2,0
+window-padding-balance = true
+window-decoration = true
+
+copy-on-select = clipboard
+shell-integration-features = cursor,sudo,no-title
+
+shell-integration = zsh
+
+keybind = ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+j=goto_split:bottom
+keybind = ctrl+shift+k=goto_split:top
+keybind = ctrl+shift+l=goto_split:right
+
+keybind = super+shift+t=new_tab
+keybind = super+shift+h=previous_tab
+keybind = super+shift+l=next_tab
+
+keybind = ctrl+shift+m=toggle_split_zoom
+keybind = super+shift+enter=new_split:auto
+
+keybind = ctrl+enter=unbind

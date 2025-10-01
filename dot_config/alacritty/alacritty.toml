@@ -1,0 +1,69 @@
+[general]
+import = ["~/.config/alacritty/theme/catppuccin-mocha.toml"]
+# import = ["~/.config/alacritty/theme/catppuccin-latte.toml"]
+live_config_reload = true
+#
+#
+[font]
+size = 10
+
+[font.normal]
+family = "Maple Mono NF"
+style = "Bold"
+
+[font.italic]
+family = "Maple Mono NF"
+style = "Bold Italic"
+
+[font.bold]
+family = "Maple Mono NF"
+style = "Bold"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "Return"
+mods = "Control|Shift"
+#
+# [[keyboard.bindings]]
+# action = "IncreaseFontSize"
+# key = "Equals"
+# mods = "Control"
+#
+# # [[keyboard.bidings]]
+# # action = "DecreaseFontSize"
+# # key
+#
+# [shell]
+# program = "/usr/bin/zsh"
+#
+[window]
+# Window dimensions in character columns and lines
+# (changes require restart)
+dimensions = { columns = 160, lines = 80 }
+#
+# Adds this many blank pixels of padding around the window
+# Units are physical pixels; this is not DPI aware.
+# (change requires restart)
+padding = { x = 4, y = 4 }
+# margin = { x = 0, y = 10}
+opacity = 1
+
+# Window decorations
+# Setting this to false will result in window without borders and title bar.
+decorations = "None"
+
+startup_mode = "Maximized"
+
+dynamic_title = true
+
+option_as_alt = "Both"
+
+
+[env]
+TERM = "xterm-256color"
+
+[cursor.style]
+shape = "Beam"
+
+[cursor.vi_mode_style]
+shape = "Block"

@@ -1,0 +1,9 @@
+keymap:
+  send-request: ctrl+r
+  quit: ctrl+q
+  save-request: ctrl+b
+  focus-url: ctrl+u
+
+editor: nvim
+pager: less
+pager_json: jq

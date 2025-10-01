@@ -1,0 +1,1 @@
+{"SELECT":{"body":["SELECT * ","FROM ${1:table} ${0};"],"prefix":"sel"}}

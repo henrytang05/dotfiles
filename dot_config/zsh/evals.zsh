@@ -17,4 +17,5 @@ eval "$(starship init zsh)"
 . "$HOME/.atuin/bin/env"
 
 eval "$(atuin init zsh --disable-up-arrow)"
+eval $(thefuck --alias)
 source ~/.venv/base/bin/activate

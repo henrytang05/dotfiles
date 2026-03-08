@@ -17,7 +17,7 @@ return {
         desc = "Step out",
       },
       {
-        "<F5>",
+        "<F9>",
         function()
           require("dap").step_over()
         end,

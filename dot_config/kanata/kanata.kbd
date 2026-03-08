@@ -74,9 +74,9 @@ process-unmapped-keys yes
  rmet del
  f (t! homerowmod $tot 200 f lctl)
  j (t! homerowmod $tot 200 j ctl)
- d (t! homerowmod $tot 130 d (one-shot-press 50 lsft))
- k (t! homerowmod $tot 130 k (one-shot-press 50 rsft))
- s (t! homerowmodfiltered $tot 200 s lalt (a)) ;; example fix of the 'as' role 
+ d (t! homerowmod $tot 130 d lsft)
+ k (t! homerowmod $tot 130 k rsft)
+ s (t! homerowmodfiltered $tot 200 s lalt (a d)) ;; example fix of the 'as' role 
  l (t! homerowmod $tot 200 l ralt)
  a (t! homerowmod $tot 250 a lmet)
  ; (t! homerowmod $tot 150 ; rmet)
@@ -86,6 +86,8 @@ process-unmapped-keys yes
 
 spc @.space-layer
  bspc @.bspc-typing
+
+ lsft (tap-hold 200 200 bspc lsft)
 )
 
 (deflayermap (typing) 
@@ -101,6 +103,7 @@ spc @.space-layer
     l right
     j down
     k up
+    w bspc
     1 A-S-M-C-1
     2 A-S-M-C-2
     3 A-S-M-C-3

@@ -30,3 +30,4 @@ compinit -d "${ZHIDDEN}/.zcompdump"
 
 
 
+fastfetch | lolcat

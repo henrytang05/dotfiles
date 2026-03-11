@@ -11,11 +11,11 @@ eval "$(fzf --zsh)"
 # eval "$(thefuck --alias)"
 eval "$(starship init zsh)"
 
-# . "$HOME/.local/bin/env"
-#
-#
-# . "$HOME/.atuin/bin/env"
+. "$HOME/.local/bin/env"
+
+
+. "$HOME/.atuin/bin/env"
 
 eval "$(atuin init zsh --disable-up-arrow)"
-# eval $(thefuck --alias)
-source ~/.venv/base/.venv/bin/activate
+eval $(thefuck --alias)
+source ~/.venv/base/bin/activate

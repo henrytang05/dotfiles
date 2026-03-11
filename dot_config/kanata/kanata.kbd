@@ -49,7 +49,8 @@ process-unmapped-keys yes
     .bspc-typing   (multi (layer-switch base) bspc) ;; expilcitly leave typing-layer when hitting `backspace` - this allows experimenting with higher idle timeouts
    fnl (tap-hold 200 200 fn (layer-toggle fn))
 
-   .hyper-space (tap-hold-press 200 200 (multi (layer-switch base) spc) (multi lsft lctl lalt lmet))
+   .hyper-space (tap-hold-press 200 300 (multi (layer-switch base) spc) (multi lsft lctl lalt lmet))
+
    .space-layer (tap-hold 200 250 (multi (layer-switch base) spc) (multi (layer-toggle alter) (layer-switch base)))
 )
 
@@ -84,7 +85,7 @@ process-unmapped-keys yes
  q (multi q @.tp) w (multi w @.tp) e (multi e @.tp) r (multi r @.tp) t (multi t @.tp) y (multi y @.tp) u (multi u @.tp) i (multi i @.tp) o (multi o @.tp) p (multi p @.tp) g (multi g @.tp) h (multi h @.tp) z (multi z @.tp) x (multi x @.tp) c (multi c @.tp) v (multi v @.tp) b (multi b @.tp) n (multi n @.tp) m (multi m @.tp) 
  esc (tap-hold 200 200 esc lrld)
 
-spc @.space-layer
+spc @.hyper-space
  bspc @.bspc-typing
 
  lsft (tap-hold 200 200 bspc lsft)
